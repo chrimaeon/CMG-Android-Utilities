@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="dialog_title_rate">Rate now!</string>
-    <string name="dialog_message_rate">If you enjoy using %1$s, please take a moment
+    <string name="dialog_cmgrate_title">Rate now!</string>
+    <string name="dialog_cmgrate_message">If you enjoy using %1$s, please take a moment
     to rate it.\nThanks for your support!</string>
-    <string name="dialog_rate_ok">Rate %1$s</string>
-    <string name="dialog_rate_later">Remind me later</string>
-    <string name="dialog_rate_no">No, thanks</string>
+    <string name="dialog_cmgrate_ok">Rate %1$s</string>
+    <string name="dialog_cmgrate_later">Remind me later</string>
+    <string name="dialog_cmgrate_no">No, thanks</string>
 
 </resources>

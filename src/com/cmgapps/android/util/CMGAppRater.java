@@ -123,10 +123,10 @@ public class CMGAppRater
       appName = "";
     }
     
-    new AlertDialog.Builder(mContext).setTitle(R.string.dialog_title_rate)
-        .setMessage(mContext.getString(R.string.dialog_message_rate, appName)).setCancelable(false)
+    new AlertDialog.Builder(mContext).setTitle(R.string.dialog_cmgrate_title)
+        .setMessage(mContext.getString(R.string.dialog_cmgrate_message, appName)).setCancelable(false)
         .setIcon(R.drawable.ic_dialog_star)
-        .setPositiveButton(mContext.getString(R.string.dialog_rate_ok, appName), new DialogInterface.OnClickListener()
+        .setPositiveButton(mContext.getString(R.string.dialog_cmgrate_ok, appName), new DialogInterface.OnClickListener()
         {
           @Override
           public void onClick(DialogInterface dialog, int id)
@@ -140,7 +140,7 @@ public class CMGAppRater
             editor.commit();
             dialog.dismiss();
           }
-        }).setNegativeButton(R.string.dialog_rate_no, new DialogInterface.OnClickListener()
+        }).setNegativeButton(R.string.dialog_cmgrate_no, new DialogInterface.OnClickListener()
         {
           @Override
           public void onClick(DialogInterface dialog, int id)
@@ -148,7 +148,7 @@ public class CMGAppRater
             editor.putBoolean(DECLINED_RATE, true).commit();
             dialog.dismiss();
           }
-        }).setNeutralButton(R.string.dialog_rate_later, new DialogInterface.OnClickListener()
+        }).setNeutralButton(R.string.dialog_cmgrate_later, new DialogInterface.OnClickListener()
         {
           @Override
           public void onClick(DialogInterface dialog, int id)

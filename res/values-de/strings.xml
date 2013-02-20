@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="dialog_title_rate">Jetzt bewerten!</string>
-    <string name="dialog_message_rate">Wenn du den %1$s magst, nimm dir bitte einen Moment
+    <string name="dialog_cmgrate_title">Jetzt bewerten!</string>
+    <string name="dialog_cmgrate_message">Wenn du den %1$s magst, nimm dir bitte einen Moment
     Zeit für eine Bewertung.\nDanke für die Unterstützung!</string>
-    <string name="dialog_rate_ok">Bewerte %1$s</string>
-    <string name="dialog_rate_later">Später erinnern</string>
-    <string name="dialog_rate_no">Nein, danke</string>
+    <string name="dialog_cmgrate_ok">Bewerte %1$s</string>
+    <string name="dialog_cmgrate_later">Später erinnern</string>
+    <string name="dialog_cmgrate_no">Nein, danke</string>
 
 </resources>
