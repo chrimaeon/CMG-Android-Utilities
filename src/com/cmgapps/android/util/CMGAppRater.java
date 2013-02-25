@@ -37,9 +37,6 @@ public class CMGAppRater
   {
     mContext = context;
     mPref = context.getSharedPreferences(APP_RATE_FILE_NAME, Context.MODE_PRIVATE);
-
-    if (BuildConfig.DEBUG)
-      Log.d(TAG, ratePreferenceToString(mPref));
   }
 
   public synchronized boolean checkForRating()
@@ -121,25 +118,28 @@ public class CMGAppRater
       Log.e(TAG, "Application with the package name '" + mContext.getPackageName() + "' can not be found");
       appName = "";
     }
-    
-    new AlertDialog.Builder(mContext).setTitle(R.string.dialog_cmgrate_title)
-        .setMessage(mContext.getString(R.string.dialog_cmgrate_message, appName)).setCancelable(false)
-        .setIcon(mContext.getApplicationInfo().icon)
-        .setPositiveButton(mContext.getString(R.string.dialog_cmgrate_ok, appName), new DialogInterface.OnClickListener()
-        {
-          @Override
-          public void onClick(DialogInterface dialog, int id)
-          {
-            editor.putBoolean(APP_RATED, true);
-            Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("market://details?id=" + mContext.getPackageName()));
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            mContext.startActivity(intent);
 
-            editor.commit();
-            dialog.dismiss();
-          }
-        }).setNegativeButton(R.string.dialog_cmgrate_no, new DialogInterface.OnClickListener()
+    new AlertDialog.Builder(mContext)
+        .setTitle(R.string.dialog_cmgrate_title)
+        .setMessage(mContext.getString(R.string.dialog_cmgrate_message, appName))
+        .setCancelable(false)
+        .setIcon(mContext.getApplicationInfo().icon)
+        .setPositiveButton(mContext.getString(R.string.dialog_cmgrate_ok, appName),
+            new DialogInterface.OnClickListener()
+            {
+              @Override
+              public void onClick(DialogInterface dialog, int id)
+              {
+                editor.putBoolean(APP_RATED, true);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="
+                    + mContext.getPackageName()));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(intent);
+
+                editor.commit();
+                dialog.dismiss();
+              }
+            }).setNegativeButton(R.string.dialog_cmgrate_no, new DialogInterface.OnClickListener()
         {
           @Override
           public void onClick(DialogInterface dialog, int id)
@@ -162,12 +162,18 @@ public class CMGAppRater
   private static String ratePreferenceToString(SharedPreferences pref)
   {
     StringBuilder builder = new StringBuilder("CMG App Rater Preferences: ");
-    builder.append(DECLINED_RATE).append(": ").append(pref.getBoolean(DECLINED_RATE, false)).append(", ");
-    builder.append(APP_RATED).append(": ").append(pref.getBoolean(APP_RATED, false)).append(", ");
-    builder.append(TRACKING_VERSION).append(": ").append(pref.getInt(TRACKING_VERSION, -1)).append(", ");
-    builder.append(FIRST_USE).append(": ").append(pref.getLong(FIRST_USE, 0L)).append(", ");
-    builder.append(USE_COUNT).append(": ").append(pref.getInt(USE_COUNT, 0)).append(", ");
+    builder.append(DECLINED_RATE).append(": ").append(pref.getBoolean(DECLINED_RATE, false)).append(",\n");
+    builder.append(APP_RATED).append(": ").append(pref.getBoolean(APP_RATED, false)).append(",\n");
+    builder.append(TRACKING_VERSION).append(": ").append(pref.getInt(TRACKING_VERSION, -1)).append(",\n");
+    builder.append(FIRST_USE).append(": ").append(pref.getLong(FIRST_USE, 0L)).append(",\n");
+    builder.append(USE_COUNT).append(": ").append(pref.getInt(USE_COUNT, 0)).append(",\n");
     builder.append(REMIND_LATER_DATE).append(": ").append(pref.getLong(REMIND_LATER_DATE, 0));
     return builder.toString();
+  }
+
+  @Override
+  public String toString()
+  {
+    return ratePreferenceToString(mPref);
   }
 }
