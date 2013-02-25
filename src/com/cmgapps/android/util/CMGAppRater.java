@@ -28,7 +28,7 @@ public class CMGAppRater
   private static final String TRACKING_VERSION = "tracking_version";
   private static final String REMIND_LATER_DATE = "remind_later_date";
   private static final String APP_RATED = "rated";
-  private static final boolean RATER_DEBUG = false;
+  private static final boolean RATER_DEBUG = true;
 
   private final SharedPreferences mPref;
   private final Context mContext;
@@ -40,7 +40,6 @@ public class CMGAppRater
 
     if (BuildConfig.DEBUG)
       Log.d(TAG, ratePreferenceToString(mPref));
-
   }
 
   public synchronized boolean checkForRating()
@@ -125,7 +124,7 @@ public class CMGAppRater
     
     new AlertDialog.Builder(mContext).setTitle(R.string.dialog_cmgrate_title)
         .setMessage(mContext.getString(R.string.dialog_cmgrate_message, appName)).setCancelable(false)
-        .setIcon(R.drawable.ic_dialog_star)
+        .setIcon(mContext.getApplicationInfo().icon)
         .setPositiveButton(mContext.getString(R.string.dialog_cmgrate_ok, appName), new DialogInterface.OnClickListener()
         {
           @Override
