@@ -28,7 +28,7 @@ public class CMGAppRater
   private static final String TRACKING_VERSION = "tracking_version";
   private static final String REMIND_LATER_DATE = "remind_later_date";
   private static final String APP_RATED = "rated";
-  private static final boolean RATER_DEBUG = true;
+  private static final boolean RATER_DEBUG = false;
 
   private final SharedPreferences mPref;
   private final Context mContext;
