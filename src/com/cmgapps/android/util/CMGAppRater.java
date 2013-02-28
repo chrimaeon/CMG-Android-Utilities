@@ -98,7 +98,7 @@ public class CMGAppRater
           .putBoolean(DECLINED_RATE, false).putLong(REMIND_LATER_DATE, 0L).putBoolean(APP_RATED, false);
     }
 
-    editor.commit();
+    PreferenceEditorHelper.commit(editor);
   }
 
   @SuppressLint("StringFormatMatches")
@@ -136,7 +136,7 @@ public class CMGAppRater
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
 
-                editor.commit();
+                PreferenceEditorHelper.commit(editor);
                 dialog.dismiss();
               }
             }).setNegativeButton(R.string.dialog_cmgrate_no, new DialogInterface.OnClickListener()
@@ -144,7 +144,7 @@ public class CMGAppRater
           @Override
           public void onClick(DialogInterface dialog, int id)
           {
-            editor.putBoolean(DECLINED_RATE, true).commit();
+            PreferenceEditorHelper.commit(editor.putBoolean(DECLINED_RATE, true));
             dialog.dismiss();
           }
         }).setNeutralButton(R.string.dialog_cmgrate_later, new DialogInterface.OnClickListener()
@@ -152,7 +152,7 @@ public class CMGAppRater
           @Override
           public void onClick(DialogInterface dialog, int id)
           {
-            editor.putLong(REMIND_LATER_DATE, System.currentTimeMillis()).commit();
+            PreferenceEditorHelper.commit(editor.putLong(REMIND_LATER_DATE, System.currentTimeMillis()));
             dialog.dismiss();
           }
         }).show();
