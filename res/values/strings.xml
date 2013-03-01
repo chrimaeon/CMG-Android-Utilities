@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="dialog_cmgrate_title" translatable="false">Rate now!</string>
-    <string name="dialog_cmgrate_message" translatable="false">If you enjoy using %1$s, please take a moment
+    <string name="dialog_cmgrate_title" tools:ignore="MissingTranslation">Rate now!</string>
+    <string name="dialog_cmgrate_message" tools:ignore="MissingTranslation">If you enjoy using %1$s, please take a moment
     to rate it.\nThanks for your support!</string>
-    <string name="dialog_cmgrate_ok" translatable="false">Rate %1$s</string>
-    <string name="dialog_cmgrate_later" translatable="false">Remind me later</string>
-    <string name="dialog_cmgrate_no" translatable="false">No, thanks</string>
+    <string name="dialog_cmgrate_ok" tools:ignore="MissingTranslation">Rate %1$s</string>
+    <string name="dialog_cmgrate_later" tools:ignore="MissingTranslation">Remind me later</string>
+    <string name="dialog_cmgrate_no" tools:ignore="MissingTranslation">No, thanks</string>
 
 </resources>
