@@ -156,7 +156,7 @@ public class CMGAppRater
             dialog.dismiss();
           }
         }).show();
-    editor.commit();
+    PreferenceEditorHelper.commit(editor);
   }
 
   private static String ratePreferenceToString(SharedPreferences pref)
