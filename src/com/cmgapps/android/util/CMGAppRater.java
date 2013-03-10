@@ -14,6 +14,8 @@ import android.net.Uri;
 import android.text.format.DateUtils;
 import android.util.Log;
 
+import com.cmgapps.android.R;
+
 public class CMGAppRater
 {
   private static final String TAG = "CMGAppRater";
