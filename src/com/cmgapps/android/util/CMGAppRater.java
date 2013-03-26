@@ -1,6 +1,7 @@
 package com.cmgapps.android.util;
 
 import static com.cmgapps.android.util.LogUtils.LOGE;
+import static com.cmgapps.android.util.LogUtils.makeLogTag;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -19,7 +20,7 @@ import com.cmgapps.android.R;
 
 public class CMGAppRater
 {
-  private static final String TAG = "CMGAppRater";
+  private static final String TAG = makeLogTag("CMGAppRater");
   private static final String APP_RATE_FILE_NAME = "CMGAppRater";
   private static final int LAUNCHES_UNTIL_PROMPT = 10;
   private static final long DAYS_UNTIL_PROMPT = 7 * DateUtils.DAY_IN_MILLIS;
