@@ -1,5 +1,7 @@
 package com.cmgapps.android.util;
 
+import static com.cmgapps.android.util.LogUtils.LOGE;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -12,7 +14,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.text.format.DateUtils;
-import android.util.Log;
 
 import com.cmgapps.android.R;
 
@@ -75,7 +76,7 @@ public class CMGAppRater
     }
     catch (NameNotFoundException exc)
     {
-      Log.e(TAG, "PackageName not found: " + mContext.getPackageName());
+      LOGE(TAG, "PackageName not found: " + mContext.getPackageName());
     }
 
     int tracking_version = mPref.getInt(TRACKING_VERSION, -1);
@@ -117,7 +118,7 @@ public class CMGAppRater
     }
     catch (final NameNotFoundException e)
     {
-      Log.e(TAG, "Application with the package name '" + mContext.getPackageName() + "' can not be found");
+      LOGE(TAG, "Application with the package name '" + mContext.getPackageName() + "' can not be found");
       appName = "";
     }
 
