@@ -1,5 +1,6 @@
 package com.cmgapps.android.util;
 
+import static com.cmgapps.android.util.LogUtils.LOGD;
 import static com.cmgapps.android.util.LogUtils.LOGE;
 import static com.cmgapps.android.util.LogUtils.makeLogTag;
 
@@ -16,6 +17,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.text.format.DateUtils;
 
+import com.cmgapps.android.BuildConfig;
 import com.cmgapps.android.R;
 
 public class CMGAppRater
@@ -45,6 +47,10 @@ public class CMGAppRater
 
   public synchronized boolean checkForRating()
   {
+
+    if (BuildConfig.DEBUG)
+      LOGD(TAG, toString());
+
     if (RATER_DEBUG)
       return true;
 
