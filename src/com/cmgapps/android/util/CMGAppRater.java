@@ -1,9 +1,8 @@
 package com.cmgapps.android.util;
 
-import static com.cmgapps.android.util.LogUtils.LOGD;
 import static com.cmgapps.android.util.LogUtils.LOGE;
+import static com.cmgapps.android.util.LogUtils.LOGD;
 import static com.cmgapps.android.util.LogUtils.makeLogTag;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -17,7 +16,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.text.format.DateUtils;
 
-import com.cmgapps.android.BuildConfig;
 import com.cmgapps.android.R;
 
 public class CMGAppRater
@@ -38,6 +36,7 @@ public class CMGAppRater
 
   private final SharedPreferences mPref;
   private final Context mContext;
+  private boolean mDebug = false;
 
   public CMGAppRater(Context context)
   {
@@ -45,10 +44,15 @@ public class CMGAppRater
     mPref = context.getSharedPreferences(APP_RATE_FILE_NAME, Context.MODE_PRIVATE);
   }
 
+  public void setDebug(boolean debug)
+  {
+    mDebug = debug;
+  }
+
   public synchronized boolean checkForRating()
   {
 
-    if (BuildConfig.DEBUG)
+    if (mDebug)
       LOGD(TAG, toString());
 
     if (RATER_DEBUG)
