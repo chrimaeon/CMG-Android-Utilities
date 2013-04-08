@@ -1,6 +1,7 @@
 package com.cmgapps.android.util;
 
 import static com.cmgapps.android.util.LogUtils.LOGE;
+import static com.cmgapps.android.util.LogUtils.LOGI;
 import static com.cmgapps.android.util.LogUtils.makeLogTag;
 
 import java.text.SimpleDateFormat;
@@ -18,7 +19,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.text.format.DateUtils;
-import android.util.Log;
 
 import com.cmgapps.android.R;
 
@@ -57,7 +57,7 @@ public class CMGAppRater
   {
 
     if (mDebug)
-      Log.d(TAG, toString());
+      LOGI(TAG, "Rater Content:" + toString());
 
     if (RATER_DEBUG)
       return true;
