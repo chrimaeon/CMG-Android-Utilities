@@ -1,8 +1,11 @@
 package com.cmgapps.android.util;
 
 import static com.cmgapps.android.util.LogUtils.LOGE;
-import static com.cmgapps.android.util.LogUtils.LOGD;
 import static com.cmgapps.android.util.LogUtils.makeLogTag;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,6 +18,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.text.format.DateUtils;
+import android.util.Log;
 
 import com.cmgapps.android.R;
 
@@ -53,7 +57,7 @@ public class CMGAppRater
   {
 
     if (mDebug)
-      LOGD(TAG, toString());
+      Log.d(TAG, toString());
 
     if (RATER_DEBUG)
       return true;
@@ -64,13 +68,13 @@ public class CMGAppRater
     if (mPref.getBoolean(APP_RATED, false))
       return false;
 
-    if (System.currentTimeMillis() < (mPref.getLong(FIRST_USE, System.currentTimeMillis()) + DAYS_UNTIL_PROMPT))
+    if (System.currentTimeMillis() < (mPref.getLong(FIRST_USE, 0L) + DAYS_UNTIL_PROMPT))
       return false;
 
     if (mPref.getInt(USE_COUNT, 0) <= LAUNCHES_UNTIL_PROMPT)
       return false;
-
-    if (System.currentTimeMillis() < (mPref.getLong(REMIND_LATER_DATE, System.currentTimeMillis()) + DAYS_UNTIL_REMIND_AGAIN))
+    
+    if (System.currentTimeMillis() < (mPref.getLong(REMIND_LATER_DATE, 0L) + DAYS_UNTIL_REMIND_AGAIN))
       return false;
 
     return true;
@@ -175,14 +179,20 @@ public class CMGAppRater
 
   private static String ratePreferenceToString(SharedPreferences pref)
   {
-    StringBuilder builder = new StringBuilder("CMG App Rater Preferences: ");
-    builder.append(DECLINED_RATE).append(": ").append(pref.getBoolean(DECLINED_RATE, false)).append(",\n");
-    builder.append(APP_RATED).append(": ").append(pref.getBoolean(APP_RATED, false)).append(",\n");
-    builder.append(TRACKING_VERSION).append(": ").append(pref.getInt(TRACKING_VERSION, -1)).append(",\n");
-    builder.append(FIRST_USE).append(": ").append(pref.getLong(FIRST_USE, 0L)).append(",\n");
-    builder.append(USE_COUNT).append(": ").append(pref.getInt(USE_COUNT, 0)).append(",\n");
-    builder.append(REMIND_LATER_DATE).append(": ").append(pref.getLong(REMIND_LATER_DATE, 0));
+    StringBuilder builder = new StringBuilder("[");
+    addKeyValueString(builder, DECLINED_RATE, pref.getBoolean(DECLINED_RATE, false));
+    addKeyValueString(builder, APP_RATED, pref.getBoolean(APP_RATED, false));
+    addKeyValueString(builder, TRACKING_VERSION, pref.getInt(TRACKING_VERSION, -1));
+    addKeyValueString(builder, FIRST_USE, SimpleDateFormat.getDateTimeInstance().format(new Date(pref.getLong(FIRST_USE, 0L))));
+    addKeyValueString(builder, USE_COUNT, pref.getInt(USE_COUNT, 0));
+    addKeyValueString(builder, REMIND_LATER_DATE, SimpleDateFormat.getDateTimeInstance().format(new Date(pref.getLong(REMIND_LATER_DATE, 0L))));
+    builder.replace(builder.length() - 2, builder.length(), "]");
     return builder.toString();
+  }
+  
+  private static void addKeyValueString(final StringBuilder builder, String key, Object value)
+  {
+    builder.append(key).append(": ").append(value).append(", ");
   }
 
   @Override
