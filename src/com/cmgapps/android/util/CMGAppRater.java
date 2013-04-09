@@ -38,14 +38,25 @@ public class CMGAppRater
   private static final String APP_RATED = "rated";
   private static final boolean RATER_DEBUG = false;
 
-  private final SharedPreferences mPref;
-  private final Context mContext;
+  private SharedPreferences mPref;
+  private Context mContext;
   private boolean mDebug = false;
 
-  public CMGAppRater(Context context)
+  private static CMGAppRater sInstance = new CMGAppRater();
+
+  private CMGAppRater()
   {
-    mContext = context;
-    mPref = context.getSharedPreferences(APP_RATE_FILE_NAME, Context.MODE_PRIVATE);
+  }
+
+  public void setContext(Context context)
+  {
+    mContext = context.getApplicationContext();
+    mPref = mContext.getSharedPreferences(APP_RATE_FILE_NAME, Context.MODE_PRIVATE);
+  }
+
+  public static CMGAppRater getInstance()
+  {
+    return sInstance;
   }
 
   public void setDebug(boolean debug)
@@ -55,6 +66,7 @@ public class CMGAppRater
 
   public synchronized boolean checkForRating()
   {
+    checkContext();
 
     if (mDebug)
       LOGI(TAG, "Rater Content:" + toString());
@@ -73,7 +85,7 @@ public class CMGAppRater
 
     if (mPref.getInt(USE_COUNT, 0) <= LAUNCHES_UNTIL_PROMPT)
       return false;
-    
+
     if (System.currentTimeMillis() < (mPref.getLong(REMIND_LATER_DATE, 0L) + DAYS_UNTIL_REMIND_AGAIN))
       return false;
 
@@ -82,6 +94,8 @@ public class CMGAppRater
 
   public synchronized void incrementUseCount()
   {
+    checkContext();
+
     Editor editor = mPref.edit();
     int version_code = 0;
 
@@ -122,6 +136,7 @@ public class CMGAppRater
   @SuppressLint("StringFormatMatches")
   public void show()
   {
+    checkContext();
     final Editor editor = mPref.edit();
     final PackageManager pm = mContext.getPackageManager();
 
@@ -183,21 +198,30 @@ public class CMGAppRater
     addKeyValueString(builder, DECLINED_RATE, pref.getBoolean(DECLINED_RATE, false));
     addKeyValueString(builder, APP_RATED, pref.getBoolean(APP_RATED, false));
     addKeyValueString(builder, TRACKING_VERSION, pref.getInt(TRACKING_VERSION, -1));
-    addKeyValueString(builder, FIRST_USE, SimpleDateFormat.getDateTimeInstance().format(new Date(pref.getLong(FIRST_USE, 0L))));
+    addKeyValueString(builder, FIRST_USE,
+        SimpleDateFormat.getDateTimeInstance().format(new Date(pref.getLong(FIRST_USE, 0L))));
     addKeyValueString(builder, USE_COUNT, pref.getInt(USE_COUNT, 0));
-    addKeyValueString(builder, REMIND_LATER_DATE, SimpleDateFormat.getDateTimeInstance().format(new Date(pref.getLong(REMIND_LATER_DATE, 0L))));
+    addKeyValueString(builder, REMIND_LATER_DATE,
+        SimpleDateFormat.getDateTimeInstance().format(new Date(pref.getLong(REMIND_LATER_DATE, 0L))));
     builder.replace(builder.length() - 2, builder.length(), "]");
     return builder.toString();
   }
-  
+
   private static void addKeyValueString(final StringBuilder builder, String key, Object value)
   {
     builder.append(key).append(": ").append(value).append(", ");
   }
 
+  private void checkContext()
+  {
+    if (mContext == null)
+      throw new RuntimeException("Context not set");
+  }
+
   @Override
   public String toString()
   {
+    checkContext();
     return ratePreferenceToString(mPref);
   }
 }
