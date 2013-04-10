@@ -50,7 +50,7 @@ public class CMGAppRater
 
   public void setContext(Context context)
   {
-    mContext = context.getApplicationContext();
+    mContext = context;
     mPref = mContext.getSharedPreferences(APP_RATE_FILE_NAME, Context.MODE_PRIVATE);
   }
 
