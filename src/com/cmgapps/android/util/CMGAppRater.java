@@ -26,8 +26,8 @@ public class CMGAppRater
 {
   private static final String TAG = makeLogTag("CMGAppRater");
   private static final String APP_RATE_FILE_NAME = "CMGAppRater";
-  private static final int LAUNCHES_UNTIL_PROMPT = 10;
-  private static final long DAYS_UNTIL_PROMPT = 7 * DateUtils.DAY_IN_MILLIS;
+  private static final int LAUNCHES_UNTIL_PROMPT = 5;
+  private static final long DAYS_UNTIL_PROMPT = 5 * DateUtils.DAY_IN_MILLIS;
   private static final long DAYS_UNTIL_REMIND_AGAIN = 2 * DateUtils.DAY_IN_MILLIS;
 
   private static final String FIRST_USE = "first_use";
