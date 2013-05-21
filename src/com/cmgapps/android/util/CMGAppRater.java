@@ -1,3 +1,19 @@
+/*
+ * Copyright 2013 Christian Grach
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.cmgapps.android.util;
 
 import static com.cmgapps.android.util.LogUtils.LOGE;
@@ -8,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -22,6 +39,18 @@ import android.text.format.DateUtils;
 
 import com.cmgapps.android.R;
 
+/**
+ * <p>
+ * Class that utilizes usage count and time to open a rate dialog.
+ * </p>
+ * <p>
+ * Use {@link #incrementUseCount()} on your main activity
+ * {@link Activity#onCreate(Bundle)} implementation.<br />
+ * Then call {@link #checkForRating()} to check if the requirements are met to
+ * show the dialog and finally call {@link #show()} to show the rating dialog
+ * </p>
+ * 
+ */
 public class CMGAppRater
 {
   private static final String TAG = makeLogTag("CMGAppRater");
@@ -48,22 +77,60 @@ public class CMGAppRater
   {
   }
 
+  /**
+   * <p>
+   * Sets the current <code>Context</code>.
+   * </p>
+   * 
+   * @param context
+   *          the Context for the <code>CMGAppRater</code>.
+   */
   public void setContext(Context context)
   {
     mContext = context;
     mPref = mContext.getSharedPreferences(APP_RATE_FILE_NAME, Context.MODE_PRIVATE);
   }
 
+  /**
+   * <p>
+   * Create a {@link CMGAppRater} instance
+   * </p>
+   * <p>
+   * <b>IMPORTANT:</b> call {@link #setContext(Context)} to load the
+   * required {@link SharedPreferences} file.
+   * </p>
+   * 
+   * @return The {@link CMGAppRater} instance
+   */
   public static CMGAppRater getInstance()
   {
     return sInstance;
   }
 
+  /**
+   * <p>
+   * Sets the debug flag to display current <code>CmgAppRater</code> field
+   * values on {@link #checkForRating()}
+   * </p>
+   * 
+   * @param debug
+   *          true to display debug output
+   */
   public void setDebug(boolean debug)
   {
     mDebug = debug;
   }
 
+  /**
+   * <p>
+   * Call to check if the requirements to open the rating dialog are met
+   * </p>
+   * <p>
+   * <b>NOTICE:</b> This method is thread safe
+   * </p>
+   * 
+   * @return true if requirements are met.
+   */
   public synchronized boolean checkForRating()
   {
     checkContext();
@@ -92,6 +159,14 @@ public class CMGAppRater
     return true;
   }
 
+  /**
+   * <p>
+   * Increments the usage count.
+   * </p>
+   * <p>
+   * <b>NOTICE:</b> This method is thread safe
+   * </p>
+   */
   public synchronized void incrementUseCount()
   {
     checkContext();
@@ -133,6 +208,11 @@ public class CMGAppRater
     PreferenceEditorHelper.commit(editor);
   }
 
+  /**
+   * <p>
+   * Shows a default {@link AlertDialog}
+   * </p>
+   */
   @SuppressLint("StringFormatMatches")
   public void show()
   {
@@ -149,7 +229,7 @@ public class CMGAppRater
     catch (final NameNotFoundException e)
     {
       LOGE(TAG, "Application with the package name '" + mContext.getPackageName() + "' can not be found");
-      appName = "";
+      appName = "App";
     }
 
     new AlertDialog.Builder(mContext)
@@ -215,9 +295,14 @@ public class CMGAppRater
   private void checkContext()
   {
     if (mContext == null)
-      throw new RuntimeException("Context not set");
+      throw new RuntimeException("Context not set. Use setContext(Context).");
   }
 
+  /**
+   * <p>
+   * Get the {@link SharedPreferences} file contents
+   * </p>
+   */
   @Override
   public String toString()
   {
