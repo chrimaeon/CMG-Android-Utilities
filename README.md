@@ -1,15 +1,15 @@
 CMG Android Utilities
 =====================
 
-This is a collection of Android Utilitiy classes.
+This is a collection of Android Utility classes.
 
 They are used at my Android&trade; Projects:
 
-*   [Bierdeckel](https://play.google.com/store/apps/details?id=com.cmgapps.android.bierdeckel)
-*   [PhoNews](https://play.google.com/store/apps/details?id=at.cmg.android.phonews)
-*   [PhoNews Pro](https://play.google.com/store/apps/details?id=com.cmgapps.android.phonewspro)
-*   [Roman Numerals Converter](https://play.google.com/store/apps/details?id=com.cmgapps.android.numeralsconverter)
-*   [Running Sushi](https://play.google.com/store/apps/details?id=com.cmgapps.android.sushicounter)
+*   [Bierdeckel][1]
+*   [PhoNews][2]
+*   [PhoNews Pro][3]
+*   [Roman Numerals Converter][4]
+*   [Running Sushi][5]
 
 Utilities
 ---------
@@ -36,4 +36,32 @@ Utilities
 
 6.  [UiUtilities.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/src/com/cmgapps/android/util/UiUtilities.java)
 
-    Helps you retrieving Views from ViewGroups or Activitys.
+    Helps you retrieving Views from ViewGroups or Activities.
+    
+Developed By
+------------
+
+* Christian Grach - <christian.grach@gmx.at>
+
+License
+-------
+
+    Copyright 2013 Christian Grach
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+ [1]: https://play.google.com/store/apps/details?id=com.cmgapps.android.bierdeckel
+ [2]: https://play.google.com/store/apps/details?id=at.cmg.android.phonews
+ [3]: https://play.google.com/store/apps/details?id=com.cmgapps.android.phonewspro
+ [4]: https://play.google.com/store/apps/details?id=com.cmgapps.android.numeralsconverter
+ [5]: https://play.google.com/store/apps/details?id=com.cmgapps.android.sushicounter
