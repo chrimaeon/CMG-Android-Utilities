@@ -184,30 +184,18 @@ public class FlowLayout extends ViewGroup
 
   private int getVerticalSpacing(LayoutParams lp)
   {
-    int vSpacing;
     if (lp.verticalSpacingSpecified())
-    {
-      vSpacing = lp.mVerticalSpacing;
-    }
-    else
-    {
-      vSpacing = this.mVerticalSpacing;
-    }
-    return vSpacing;
+      return lp.mVerticalSpacing;
+
+    return this.mVerticalSpacing;
   }
 
   private int getHorizontalSpacing(LayoutParams lp)
   {
-    int hSpacing;
     if (lp.horizontalSpacingSpecified())
-    {
-      hSpacing = lp.mHorizontalSpacing;
-    }
-    else
-    {
-      hSpacing = this.mHorizontalSpacing;
-    }
-    return hSpacing;
+      return lp.mHorizontalSpacing;
+
+    return this.mHorizontalSpacing;
   }
 
   /**
