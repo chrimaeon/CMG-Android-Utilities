@@ -324,6 +324,16 @@ public class FlowLayout extends ViewGroup
       this.mY = y;
     }
 
+    public void setHorizontalSpacing(int spacing)
+    {
+      mHorizontalSpacing = spacing;
+    }
+
+    public void setVerticalSpacing(int spacing)
+    {
+      mVerticalSpacing = spacing;
+    }
+
     private void readStyleParameters(Context context, AttributeSet attributeSet)
     {
       TypedArray a = context.obtainStyledAttributes(attributeSet, R.styleable.FlowLayout_LayoutParams);
