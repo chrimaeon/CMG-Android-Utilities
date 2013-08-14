@@ -17,6 +17,7 @@
 package com.cmgapps.android.util;
 
 import android.app.Activity;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -25,6 +26,8 @@ import android.view.ViewGroup;
  */
 public class UiUtilities
 {
+  public static final int ANIMATION_FADE_IN_TIME = 250;
+
   private UiUtilities()
   {
     // Utility class
@@ -108,6 +111,16 @@ public class UiUtilities
       throw new IllegalArgumentException("View does not exist");
 
     return v;
+  }
+
+  /**
+   * Checks if build version is Honeycomb MR1
+   * 
+   * @return true if build version is >= API 12
+   */
+  public static boolean hasHoneycombMR1()
+  {
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1;
   }
 
 }
