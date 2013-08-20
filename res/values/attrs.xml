@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 
-
 <resources>
 
     <declare-styleable name="FlowLayout">
@@ -30,6 +29,12 @@
         <attr name="layout_newLine" format="boolean" />
         <attr name="layout_horizontalSpacing" format="dimension" />
         <attr name="layout_verticalSpacing" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="RelativeSquareLayout">
+        <attr name="layout_size">
+            <enum name="width" value="0" />
+            <enum name="height" value="1" />
+        </attr>
     </declare-styleable>
 
 </resources>
