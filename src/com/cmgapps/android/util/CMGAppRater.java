@@ -35,6 +35,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.format.DateUtils;
 
 import com.cmgapps.android.R;
@@ -49,7 +50,7 @@ import com.cmgapps.android.R;
  * Then call {@link #checkForRating()} to check if the requirements are met to
  * show the dialog and finally call {@link #show()} to show the rating dialog
  * </p>
- * 
+ *
  */
 public class CMGAppRater
 {
@@ -81,7 +82,7 @@ public class CMGAppRater
    * <p>
    * Sets the current <code>Context</code>.
    * </p>
-   * 
+   *
    * @param context
    *          the Context for the <code>CMGAppRater</code>.
    */
@@ -99,7 +100,7 @@ public class CMGAppRater
    * <b>IMPORTANT:</b> call {@link #setContext(Context)} to load the
    * required {@link SharedPreferences} file.
    * </p>
-   * 
+   *
    * @return The {@link CMGAppRater} instance
    */
   public static CMGAppRater getInstance()
@@ -112,7 +113,7 @@ public class CMGAppRater
    * Sets the debug flag to display current <code>CmgAppRater</code> field
    * values on {@link #checkForRating()}
    * </p>
-   * 
+   *
    * @param debug
    *          true to display debug output
    */
@@ -128,7 +129,7 @@ public class CMGAppRater
    * <p>
    * <b>NOTICE:</b> This method is thread safe
    * </p>
-   * 
+   *
    * @return true if requirements are met.
    */
   public synchronized boolean checkForRating()
@@ -237,7 +238,7 @@ public class CMGAppRater
         .setMessage(mContext.getString(R.string.dialog_cmgrate_message, appName))
         .setCancelable(false)
         .setIcon(mContext.getApplicationInfo().icon)
-        .setPositiveButton(mContext.getString(R.string.dialog_cmgrate_ok, appName),
+        .setPositiveButton(mContext.getString(R.string.dialog_cmgrate_ok),
             new DialogInterface.OnClickListener()
             {
               @Override

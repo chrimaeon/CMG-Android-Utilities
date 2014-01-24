@@ -15,13 +15,12 @@
      limitations under the License.
 -->
 
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
-    <string name="dialog_cmgrate_title" tools:ignore="MissingTranslation">Rate now!</string>
-    <string name="dialog_cmgrate_message" tools:ignore="MissingTranslation">If you enjoy using %1$s, please take a moment
-    to rate it.\nThanks for your support!</string>
-    <string name="dialog_cmgrate_ok" tools:ignore="MissingTranslation">Rate now</string>
-    <string name="dialog_cmgrate_later" tools:ignore="MissingTranslation">Remind me later</string>
-    <string name="dialog_cmgrate_no" tools:ignore="MissingTranslation">No, thanks</string>
+    <string name="dialog_cmgrate_title">Noter!</string>
+    <string name="dialog_cmgrate_message">Si vous aimez %1$s, s\'il vous plait prenez un moment pour la noter.\nMerci pour votre soutien!</string>
+    <string name="dialog_cmgrate_ok">Noter</string>
+    <string name="dialog_cmgrate_later">Plus tard</string>
+    <string name="dialog_cmgrate_no">Non, merci</string>
 
 </resources>
