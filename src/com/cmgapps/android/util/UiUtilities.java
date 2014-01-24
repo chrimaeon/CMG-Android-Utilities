@@ -39,16 +39,15 @@ public class UiUtilities
    * <p>
    * Gets a view from a {@link ViewGroup}
    * </p>
-   *
+   * 
    * @param parent
    *          the view to look in
    * @param resourceId
    *          the id of the view to look for
    * @return the view
    * @throws IllegalArgumentException
-   *           if view with the givven id does not exist
+   *           if view with the given id does not exist
    */
-  @SuppressWarnings("unchecked")
   public static <T extends View> T getView(View parent, int resourceId)
   {
     return (T) checkView(parent.findViewById(resourceId));
@@ -58,7 +57,7 @@ public class UiUtilities
    * <p>
    * Gets a view from a {@link Activity}
    * </p>
-   *
+   * 
    * @param parent
    *          the Activity to look in
    * @param resourceId
@@ -67,7 +66,6 @@ public class UiUtilities
    * @throws IllegalArgumentException
    *           if view with the givven id does not exist
    */
-  @SuppressWarnings("unchecked")
   public static <T extends View> T getView(Activity parent, int resourceId)
   {
     return (T) checkView(parent.findViewById(resourceId));
@@ -77,14 +75,13 @@ public class UiUtilities
    * <p>
    * Gets a view from a {@link ViewGroup}
    * </p>
-   *
+   * 
    * @param parent
    *          the view to look in
    * @param resourceId
    *          the id of the view to look for
    * @return the view or null if the view does not exist
    */
-  @SuppressWarnings("unchecked")
   public static <T extends View> T getViewOrNull(View parent, int resourceId)
   {
     return (T) parent.findViewById(resourceId);
@@ -94,14 +91,13 @@ public class UiUtilities
    * <p>
    * Gets a view from a {@link Activity}
    * </p>
-   *
+   * 
    * @param parent
    *          the Activity to look in
    * @param resourceId
    *          the id of the view to look for
    * @return the view or null if the view does not exist
    */
-  @SuppressWarnings("unchecked")
   public static <T extends View> T getViewOrNull(Activity parent, int resourceId)
   {
     return (T) parent.findViewById(resourceId);
@@ -117,7 +113,7 @@ public class UiUtilities
 
   /**
    * Checks if build version is Honeycomb MR1
-   *
+   * 
    * @return true if build version is >= API 12
    */
   public static boolean hasHoneycombMR1()

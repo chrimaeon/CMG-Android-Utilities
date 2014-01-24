@@ -23,7 +23,6 @@ import static com.cmgapps.android.util.LogUtils.makeLogTag;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -97,8 +96,8 @@ public class CMGAppRater
    * Create a {@link CMGAppRater} instance
    * </p>
    * <p>
-   * <b>IMPORTANT:</b> call {@link #setContext(Context)} to load the
-   * required {@link SharedPreferences} file.
+   * <b>IMPORTANT:</b> call {@link #setContext(Context)} to load the required
+   * {@link SharedPreferences} file.
    * </p>
    *
    * @return The {@link CMGAppRater} instance
@@ -214,7 +213,6 @@ public class CMGAppRater
    * Shows a default {@link AlertDialog}
    * </p>
    */
-  @SuppressLint("StringFormatMatches")
   public void show()
   {
     checkContext();
