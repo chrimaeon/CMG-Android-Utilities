@@ -70,6 +70,7 @@ public class CMGAppRater
   private SharedPreferences mPref;
   private Context mContext;
   private boolean mDebug = false;
+  private AlertDialog mDialog;
 
   private static CMGAppRater sInstance = new CMGAppRater();
 
@@ -216,6 +217,10 @@ public class CMGAppRater
   public void show()
   {
     checkContext();
+    
+    if (mDialog != null && mDialog.isShowing())
+      return;
+    
     final Editor editor = mPref.edit();
     final PackageManager pm = mContext.getPackageManager();
 
@@ -225,15 +230,19 @@ public class CMGAppRater
       ApplicationInfo ai = pm.getApplicationInfo(mContext.getPackageName(), 0);
       appName = (String) pm.getApplicationLabel(ai);
     }
-    catch (final NameNotFoundException e)
+    catch (NameNotFoundException e)
     {
-      LOGE(TAG, "Application with the package name '" + mContext.getPackageName() + "' can not be found");
+      LOGE(TAG, "Application name can not be found");
+    }
+    
+    if (appName == null)
+    {
       appName = "App";
     }
 
-    new AlertDialog.Builder(mContext)
+    mDialog = new AlertDialog.Builder(mContext)
         .setTitle(R.string.dialog_cmgrate_title)
-        .setMessage(mContext.getString(R.string.dialog_cmgrate_message, appName))
+        .setMessage(mContext.getString(R.string.dialog_cmgrate_message,(String) appName))
         .setCancelable(false)
         .setIcon(mContext.getApplicationInfo().icon)
         .setPositiveButton(mContext.getString(R.string.dialog_cmgrate_ok),
