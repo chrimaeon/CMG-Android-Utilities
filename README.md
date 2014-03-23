@@ -38,6 +38,10 @@ Utilities
 
     Helps you retrieving Views from ViewGroups or Activities.
     
+7. [ApiUtils.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/src/com/cmgapps/android/util/ApiUtils.java)
+
+	Utility class for checking Android API Version
+    
 Developed By
 ------------
 
