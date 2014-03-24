@@ -64,8 +64,8 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
 
- [1]: https://play.google.com/store/apps/details?id=com.cmgapps.android.bierdeckel
- [2]: https://play.google.com/store/apps/details?id=at.cmg.android.phonews
- [3]: https://play.google.com/store/apps/details?id=com.cmgapps.android.phonewspro
- [4]: https://play.google.com/store/apps/details?id=com.cmgapps.android.numeralsconverter
- [5]: https://play.google.com/store/apps/details?id=com.cmgapps.android.sushicounter
+ [1]: https://play.google.com/store/apps/details?id=com.cmgapps.android.bierdeckel&referrer=utm_source%3Dgithub%26utm_medium%3Drepository
+ [2]: https://play.google.com/store/apps/details?id=at.cmg.android.phonews&referrer=utm_source%3Dgithub%26utm_medium%3Drepository
+ [3]: https://play.google.com/store/apps/details?id=com.cmgapps.android.phonewspro&referrer=utm_source%3Dgithub%26utm_medium%3Drepository
+ [4]: https://play.google.com/store/apps/details?id=com.cmgapps.android.numeralsconverter&referrer=utm_source%3Dgithub%26utm_medium%3Drepository
+ [5]: https://play.google.com/store/apps/details?id=com.cmgapps.android.sushicounter&referrer=utm_source%3Dgithub%26utm_medium%3Drepository
