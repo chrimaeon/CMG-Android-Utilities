@@ -54,8 +54,23 @@ public class ApiUtils
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1;
   }
   
+  /**
+   * Checks if build version is Ice Cream Sandwitch
+   * 
+   * @return true if build version is >= API 14
+   */
   public static boolean hasIceCreamSandwitch()
   {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
+  }
+  
+  /**
+   * Checks if build version is KitKat
+   * 
+   * @return true if build version is >= API 14
+   */
+  public static boolean hasKitKat()
+  {
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
   }
 }
