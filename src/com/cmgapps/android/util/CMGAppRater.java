@@ -49,7 +49,7 @@ import com.cmgapps.android.R;
  * Then call {@link #checkForRating()} to check if the requirements are met to
  * show the dialog and finally call {@link #show()} to show the rating dialog
  * </p>
- *
+ * 
  */
 public class CMGAppRater
 {
@@ -72,40 +72,37 @@ public class CMGAppRater
   private boolean mDebug = false;
   private AlertDialog mDialog;
 
-  private static CMGAppRater sInstance = new CMGAppRater();
+  private static CMGAppRater sInstance = null;
 
-  private CMGAppRater()
+  private CMGAppRater(Context context)
   {
-  }
+    if (context == null)
+    {
+      throw new IllegalArgumentException("context cannot be null");
+    }
 
-  /**
-   * <p>
-   * Sets the current <code>Context</code>.
-   * </p>
-   *
-   * @param context
-   *          the Context for the <code>CMGAppRater</code>.
-   */
-  public void setContext(Context context)
-  {
-    mContext = context;
+    mContext = context.getApplicationContext();
     mPref = mContext.getSharedPreferences(APP_RATE_FILE_NAME, Context.MODE_PRIVATE);
   }
 
   /**
    * <p>
-   * Create a {@link CMGAppRater} instance
+   * Get a {@link CMGAppRater} instance
    * </p>
-   * <p>
-   * <b>IMPORTANT:</b> call {@link #setContext(Context)} to load the required
-   * {@link SharedPreferences} file.
-   * </p>
-   *
+   * 
    * @return The {@link CMGAppRater} instance
    */
-  public static CMGAppRater getInstance()
+  public static CMGAppRater getInstance(Context context)
   {
-    return sInstance;
+    synchronized (CMGAppRater.class)
+    {
+      if (sInstance == null)
+      {
+        sInstance = new CMGAppRater(context);
+      }
+
+      return sInstance;
+    }
   }
 
   /**
@@ -113,7 +110,7 @@ public class CMGAppRater
    * Sets the debug flag to display current <code>CmgAppRater</code> field
    * values on {@link #checkForRating()}
    * </p>
-   *
+   * 
    * @param debug
    *          true to display debug output
    */
@@ -129,12 +126,11 @@ public class CMGAppRater
    * <p>
    * <b>NOTICE:</b> This method is thread safe
    * </p>
-   *
+   * 
    * @return true if requirements are met.
    */
   public synchronized boolean checkForRating()
   {
-    checkContext();
 
     if (mDebug)
       LOGI(TAG, "Rater Content:" + toString());
@@ -170,7 +166,6 @@ public class CMGAppRater
    */
   public synchronized void incrementUseCount()
   {
-    checkContext();
 
     Editor editor = mPref.edit();
     int version_code = 0;
@@ -213,54 +208,55 @@ public class CMGAppRater
    * <p>
    * Shows a default {@link AlertDialog}
    * </p>
+   * 
+   * @param context A Context to show the dialog
    */
-  public void show()
+  public void show(final Context context)
   {
-    checkContext();
-    
+    if (context == null)
+    {
+      throw new IllegalArgumentException("context cannot be null");
+    }
+
     if (mDialog != null && mDialog.isShowing())
       return;
-    
+
     final Editor editor = mPref.edit();
-    final PackageManager pm = mContext.getPackageManager();
+    final PackageManager pm = context.getPackageManager();
 
     String appName = null;
     try
     {
-      ApplicationInfo ai = pm.getApplicationInfo(mContext.getPackageName(), 0);
+      ApplicationInfo ai = pm.getApplicationInfo(context.getPackageName(), 0);
       appName = (String) pm.getApplicationLabel(ai);
     }
     catch (NameNotFoundException e)
     {
       LOGE(TAG, "Application name can not be found");
     }
-    
+
     if (appName == null)
     {
       appName = "App";
     }
 
-    mDialog = new AlertDialog.Builder(mContext)
-        .setTitle(R.string.dialog_cmgrate_title)
-        .setMessage(mContext.getString(R.string.dialog_cmgrate_message,(String) appName))
-        .setCancelable(false)
-        .setIcon(mContext.getApplicationInfo().icon)
-        .setPositiveButton(mContext.getString(R.string.dialog_cmgrate_ok),
-            new DialogInterface.OnClickListener()
-            {
-              @Override
-              public void onClick(DialogInterface dialog, int id)
-              {
-                editor.putBoolean(APP_RATED, true);
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="
-                    + mContext.getPackageName()));
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(intent);
+    mDialog = new AlertDialog.Builder(context).setTitle(R.string.dialog_cmgrate_title)
+        .setMessage(context.getString(R.string.dialog_cmgrate_message, (String) appName)).setCancelable(false)
+        .setIcon(context.getApplicationInfo().icon)
+        .setPositiveButton(context.getString(R.string.dialog_cmgrate_ok), new DialogInterface.OnClickListener()
+        {
+          @Override
+          public void onClick(DialogInterface dialog, int id)
+          {
+            editor.putBoolean(APP_RATED, true);
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + context.getPackageName()));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
 
-                PreferenceEditorHelper.commit(editor);
-                dialog.dismiss();
-              }
-            }).setNegativeButton(R.string.dialog_cmgrate_no, new DialogInterface.OnClickListener()
+            PreferenceEditorHelper.commit(editor);
+            dialog.dismiss();
+          }
+        }).setNegativeButton(R.string.dialog_cmgrate_no, new DialogInterface.OnClickListener()
         {
           @Override
           public void onClick(DialogInterface dialog, int id)
@@ -300,12 +296,6 @@ public class CMGAppRater
     builder.append(key).append(": ").append(value).append(", ");
   }
 
-  private void checkContext()
-  {
-    if (mContext == null)
-      throw new RuntimeException("Context not set. Use setContext(Context).");
-  }
-
   /**
    * <p>
    * Get the {@link SharedPreferences} file contents
@@ -314,7 +304,6 @@ public class CMGAppRater
   @Override
   public String toString()
   {
-    checkContext();
     return ratePreferenceToString(mPref);
   }
 }
