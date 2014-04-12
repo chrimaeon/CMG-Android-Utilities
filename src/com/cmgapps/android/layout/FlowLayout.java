@@ -256,7 +256,7 @@ public class FlowLayout extends ViewGroup
     {
       mHorizontalSpacing = a.getDimensionPixelSize(R.styleable.FlowLayout_horizontalSpacing, 0);
       mVerticalSpacing = a.getDimensionPixelSize(R.styleable.FlowLayout_verticalSpacing, 0);
-      mOrientation = a.getInteger(R.styleable.FlowLayout_orientation, HORIZONTAL);
+      mOrientation = a.getInteger(R.styleable.FlowLayout_fl_orientation, HORIZONTAL);
     }
     finally
     {
