@@ -38,6 +38,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Looper;
 import android.text.format.DateUtils;
 
 import com.cmgapps.android.R;
@@ -115,7 +116,8 @@ public class CMGAppRater
   }
 
   /**
-   * @param launchesUntilPrompt the launchesUntilPrompt to set
+   * @param launchesUntilPrompt
+   *          the launchesUntilPrompt to set
    */
   public void setLaunchesUntilPrompt(int launchesUntilPrompt)
   {
@@ -123,7 +125,8 @@ public class CMGAppRater
   }
 
   /**
-   * @param daysUntilPrompt the daysUntilPrompt to set
+   * @param daysUntilPrompt
+   *          the daysUntilPrompt to set
    */
   public void setDaysUntilPrompt(long daysUntilPrompt)
   {
@@ -131,7 +134,8 @@ public class CMGAppRater
   }
 
   /**
-   * @param daysUntilRemindAgain the daysUntilRemindAgain to set
+   * @param daysUntilRemindAgain
+   *          the daysUntilRemindAgain to set
    */
   public void setDaysUntilRemindAgain(long daysUntilRemindAgain)
   {
@@ -250,6 +254,11 @@ public class CMGAppRater
     if (context == null)
     {
       throw new IllegalArgumentException("context cannot be null");
+    }
+
+    if (Looper.getMainLooper().getThread() != Thread.currentThread())
+    {
+      throw new RuntimeException("CMGAppRater.show() must be called from main thread");
     }
 
     if (mDialog != null && mDialog.isShowing())
