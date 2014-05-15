@@ -74,6 +74,9 @@ public class CMGAppRater
   private Context mContext;
   private boolean mDebug = false;
   private AlertDialog mDialog;
+  private int mLaunchesUntilPrompt;
+  private long mDaysUntilPrompt;
+  private long mDaysUntilRemindAgain;
 
   private static CMGAppRater sInstance = null;
 
@@ -86,7 +89,9 @@ public class CMGAppRater
 
     mContext = context.getApplicationContext();
     mPref = mContext.getSharedPreferences(APP_RATE_FILE_NAME, Context.MODE_PRIVATE);
-
+    mLaunchesUntilPrompt = LAUNCHES_UNTIL_PROMPT;
+    mDaysUntilPrompt = DAYS_UNTIL_PROMPT;
+    mDaysUntilRemindAgain = DAYS_UNTIL_REMIND_AGAIN;
   }
 
   /**
@@ -107,6 +112,30 @@ public class CMGAppRater
 
       return sInstance;
     }
+  }
+
+  /**
+   * @param launchesUntilPrompt the launchesUntilPrompt to set
+   */
+  public void setLaunchesUntilPrompt(int launchesUntilPrompt)
+  {
+    mLaunchesUntilPrompt = launchesUntilPrompt;
+  }
+
+  /**
+   * @param daysUntilPrompt the daysUntilPrompt to set
+   */
+  public void setDaysUntilPrompt(long daysUntilPrompt)
+  {
+    mDaysUntilPrompt = daysUntilPrompt;
+  }
+
+  /**
+   * @param daysUntilRemindAgain the daysUntilRemindAgain to set
+   */
+  public void setDaysUntilRemindAgain(long daysUntilRemindAgain)
+  {
+    mDaysUntilRemindAgain = daysUntilRemindAgain;
   }
 
   /**
@@ -148,13 +177,13 @@ public class CMGAppRater
     if (mPref.getBoolean(APP_RATED, false))
       return false;
 
-    if (System.currentTimeMillis() < (mPref.getLong(FIRST_USE, 0L) + DAYS_UNTIL_PROMPT))
+    if (System.currentTimeMillis() < (mPref.getLong(FIRST_USE, 0L) + mDaysUntilPrompt))
       return false;
 
-    if (mPref.getInt(USE_COUNT, 0) <= LAUNCHES_UNTIL_PROMPT)
+    if (mPref.getInt(USE_COUNT, 0) <= mLaunchesUntilPrompt)
       return false;
 
-    if (System.currentTimeMillis() < (mPref.getLong(REMIND_LATER_DATE, 0L) + DAYS_UNTIL_REMIND_AGAIN))
+    if (System.currentTimeMillis() < (mPref.getLong(REMIND_LATER_DATE, 0L) + mDaysUntilRemindAgain))
       return false;
 
     return true;
