@@ -49,7 +49,7 @@ import com.cmgapps.android.R;
  * Then call {@link #checkForRating()} to check if the requirements are met to
  * show the dialog and finally call {@link #show()} to show the rating dialog
  * </p>
- * 
+ *
  */
 public class CMGAppRater
 {
@@ -89,7 +89,7 @@ public class CMGAppRater
    * <p>
    * Get a {@link CMGAppRater} instance
    * </p>
-   * 
+   *
    * @return The {@link CMGAppRater} instance
    */
   public static CMGAppRater getInstance(Context context)
@@ -110,7 +110,7 @@ public class CMGAppRater
    * Sets the debug flag to display current <code>CmgAppRater</code> field
    * values on {@link #checkForRating()}
    * </p>
-   * 
+   *
    * @param debug
    *          true to display debug output
    */
@@ -126,7 +126,7 @@ public class CMGAppRater
    * <p>
    * <b>NOTICE:</b> This method is thread safe
    * </p>
-   * 
+   *
    * @return true if requirements are met.
    */
   public synchronized boolean checkForRating()
@@ -208,7 +208,7 @@ public class CMGAppRater
    * <p>
    * Shows a default {@link AlertDialog}
    * </p>
-   * 
+   *
    * @param context A Context to show the dialog
    */
   public void show(final Context context)
@@ -224,7 +224,7 @@ public class CMGAppRater
     final Editor editor = mPref.edit();
     final PackageManager pm = context.getPackageManager();
 
-    String appName = null;
+    String appName;
     try
     {
       ApplicationInfo ai = pm.getApplicationInfo(context.getPackageName(), 0);
@@ -233,15 +233,11 @@ public class CMGAppRater
     catch (NameNotFoundException e)
     {
       LOGE(TAG, "Application name can not be found");
-    }
-
-    if (appName == null)
-    {
       appName = "App";
     }
 
     mDialog = new AlertDialog.Builder(context).setTitle(R.string.dialog_cmgrate_title)
-        .setMessage(context.getString(R.string.dialog_cmgrate_message, (String) appName)).setCancelable(false)
+        .setMessage(context.getString(R.string.dialog_cmgrate_message, appName)).setCancelable(false)
         .setIcon(context.getApplicationInfo().icon)
         .setPositiveButton(context.getString(R.string.dialog_cmgrate_ok), new DialogInterface.OnClickListener()
         {
