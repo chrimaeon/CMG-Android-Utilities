@@ -1,5 +1,5 @@
-CMG Android Utilities
-=====================
+[CMG Mobile Apps](http://www.cmgapps.com?utm_source=github&utm_medium=README&utm_campaign=default) Android Utilities
+=================================
 
 This is a collection of Android Utility classes.
 
@@ -46,6 +46,7 @@ Developed By
 ------------
 
 * Christian Grach - <christian.grach@gmx.at>
+* et al.
 
 License
 -------
@@ -64,8 +65,8 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
 
- [1]: https://play.google.com/store/apps/details?id=com.cmgapps.android.bierdeckel&referrer=utm_source%3Dgithub%26utm_medium%3Drepository
- [2]: https://play.google.com/store/apps/details?id=at.cmg.android.phonews&referrer=utm_source%3Dgithub%26utm_medium%3Drepository
- [3]: https://play.google.com/store/apps/details?id=com.cmgapps.android.phonewspro&referrer=utm_source%3Dgithub%26utm_medium%3Drepository
- [4]: https://play.google.com/store/apps/details?id=com.cmgapps.android.numeralsconverter&referrer=utm_source%3Dgithub%26utm_medium%3Drepository
- [5]: https://play.google.com/store/apps/details?id=com.cmgapps.android.sushicounter&referrer=utm_source%3Dgithub%26utm_medium%3Drepository
+ [1]: https://play.google.com/store/apps/details?id=com.cmgapps.android.bierdeckel&referrer=utm_source%3Dgithub%26utm_medium%3DREADME
+ [2]: https://play.google.com/store/apps/details?id=at.cmg.android.phonews&referrer=utm_source%3Dgithub%26utm_medium%3DREADME
+ [3]: https://play.google.com/store/apps/details?id=com.cmgapps.android.phonewspro&referrer=utm_source%3Dgithub%26utm_medium%3DREADME
+ [4]: https://play.google.com/store/apps/details?id=com.cmgapps.android.numeralsconverter&referrer=utm_source%3Dgithub%26utm_medium%3DREADME
+ [5]: https://play.google.com/store/apps/details?id=com.cmgapps.android.sushicounter&referrer=utm_source%3Dgithub%26utm_medium%3DREADME
