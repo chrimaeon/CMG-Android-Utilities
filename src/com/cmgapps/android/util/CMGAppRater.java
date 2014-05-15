@@ -23,6 +23,9 @@ import static com.cmgapps.android.util.LogUtils.makeLogTag;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -83,6 +86,7 @@ public class CMGAppRater
 
     mContext = context.getApplicationContext();
     mPref = mContext.getSharedPreferences(APP_RATE_FILE_NAME, Context.MODE_PRIVATE);
+
   }
 
   /**
@@ -209,7 +213,8 @@ public class CMGAppRater
    * Shows a default {@link AlertDialog}
    * </p>
    *
-   * @param context A Context to show the dialog
+   * @param context
+   *          A Context to show the dialog
    */
   public void show(final Context context)
   {
@@ -274,22 +279,23 @@ public class CMGAppRater
 
   private static String ratePreferenceToString(SharedPreferences pref)
   {
-    StringBuilder builder = new StringBuilder("[");
-    addKeyValueString(builder, DECLINED_RATE, pref.getBoolean(DECLINED_RATE, false));
-    addKeyValueString(builder, APP_RATED, pref.getBoolean(APP_RATED, false));
-    addKeyValueString(builder, TRACKING_VERSION, pref.getInt(TRACKING_VERSION, -1));
-    addKeyValueString(builder, FIRST_USE,
-        SimpleDateFormat.getDateTimeInstance().format(new Date(pref.getLong(FIRST_USE, 0L))));
-    addKeyValueString(builder, USE_COUNT, pref.getInt(USE_COUNT, 0));
-    addKeyValueString(builder, REMIND_LATER_DATE,
-        SimpleDateFormat.getDateTimeInstance().format(new Date(pref.getLong(REMIND_LATER_DATE, 0L))));
-    builder.replace(builder.length() - 2, builder.length(), "]");
-    return builder.toString();
-  }
+    JSONObject thiz = new JSONObject();
+    try
+    {
+      thiz.put(DECLINED_RATE, pref.getBoolean(DECLINED_RATE, false));
+      thiz.put(APP_RATED, pref.getBoolean(APP_RATED, false));
+      thiz.put(TRACKING_VERSION, pref.getInt(TRACKING_VERSION, -1));
+      thiz.put(FIRST_USE, SimpleDateFormat.getDateTimeInstance().format(new Date(pref.getLong(FIRST_USE, 0L))));
+      thiz.put(USE_COUNT, pref.getInt(USE_COUNT, 0));
+      thiz.put(REMIND_LATER_DATE,
+          SimpleDateFormat.getDateTimeInstance().format(new Date(pref.getLong(REMIND_LATER_DATE, 0L))));
+    }
+    catch (JSONException exc)
+    {
+      LOGE(TAG, "Error creating JSON Object", exc);
+    }
 
-  private static void addKeyValueString(final StringBuilder builder, String key, Object value)
-  {
-    builder.append(key).append(": ").append(value).append(", ");
+    return thiz.toString();
   }
 
   /**
