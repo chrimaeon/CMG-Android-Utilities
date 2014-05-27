@@ -21,6 +21,8 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Interpolator;
 
 /**
  * Helper class for retrieving a View from a layout
@@ -28,6 +30,8 @@ import android.view.ViewGroup;
 public class UiUtilities
 {
   public static final int ANIMATION_FADE_IN_TIME = 250;
+  public static final Interpolator QUINT_DECELERATE_INTERPOLATOR = new DecelerateInterpolator(2.5f);
+  public static final Interpolator CUBIC_DECELERATE_INTERPOLATOR = new DecelerateInterpolator(1.5f);
 
   private UiUtilities()
   {
