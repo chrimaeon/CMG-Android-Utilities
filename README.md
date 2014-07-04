@@ -16,7 +16,7 @@ Utilities
 
 1. [FlowLayout.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/src/com/cmgapps/android/layout/FlowLayout.java)
 
-    A layout which arranges as many of its child views in a row as possible. 
+    A layout which arranges as many of its child views in a row as possible.
 
 2. [AsyncTaskExecutionHelper.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/src/com/cmgapps/android/util/AsyncTaskExecutionHelper.java)
 
@@ -37,11 +37,20 @@ Utilities
 6. [UiUtilities.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/src/com/cmgapps/android/util/UiUtilities.java)
 
     Helps you retrieving Views from ViewGroups or Activities.
-    
+
 7. [ApiUtils.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/src/com/cmgapps/android/util/ApiUtils.java)
 
 	Utility class for checking Android API Version
-    
+
+Gradle
+------
+
+Android Utilities are now pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
+
+    dependencies {
+        compile 'com.cmgapps.android:cmgUtilities:0.+'
+    }
+
 Developed By
 ------------
 
