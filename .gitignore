@@ -1,7 +1,6 @@
 bin/
 gen/
 /local.properties
-/libs
 /scripts
 /README.html
 /.README.md.html

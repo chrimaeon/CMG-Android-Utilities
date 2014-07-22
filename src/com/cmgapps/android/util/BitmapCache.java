@@ -1,0 +1,48 @@
+/*
+ * Copyright 2013 Christian Grach
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.cmgapps.android.util;
+
+import android.annotation.TargetApi;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.support.v4.util.LruCache;
+
+public final class BitmapCache extends LruCache<Integer, Bitmap>
+{
+
+  public BitmapCache(int maxSize)
+  {
+    super(maxSize);
+  }
+
+  @TargetApi(Build.VERSION_CODES.KITKAT)
+  @Override
+  protected int sizeOf(Integer key, Bitmap bitmap)
+  {
+    if (ApiUtils.hasKitKat())
+    {
+      return bitmap.getAllocationByteCount() / 1024;
+    }
+    else if (ApiUtils.hasHoneycombMR1())
+    {
+      return bitmap.getByteCount() / 1024;
+    }
+    else
+    {
+      return (bitmap.getRowBytes() * bitmap.getHeight()) / 1024;
+    }
+  }
+}
