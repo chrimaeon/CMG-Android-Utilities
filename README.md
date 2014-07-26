@@ -1,4 +1,4 @@
-[CMG Mobile Apps](http://www.cmgapps.com?utm_source=github&utm_medium=README&utm_campaign=default) Android Utilities
+[CMG Mobile Apps](http://www.cmgapps.com?utm_source=github&utm_medium=README&utm_campaign=default) Android&trade; Utilities
 =================================
 
 This is a collection of Android Utility classes.
@@ -40,7 +40,11 @@ Utilities
 
 7. [ApiUtils.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/src/com/cmgapps/android/util/ApiUtils.java)
 
-	Utility class for checking Android API Version
+	  Utility class for checking Android API Version
+
+8. [BitmapCache.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/src/com/cmgapps/android/util/BitmapCache.java)
+
+    Cache for bitmaps using Android's [LruCache](http://developer.android.com/reference/android/util/LruCache.html)
 
 Gradle
 ------
@@ -73,6 +77,8 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+*Android is a trademark of Google Inc.*
 
  [1]: https://play.google.com/store/apps/details?id=com.cmgapps.android.bierdeckel&referrer=utm_source%3Dgithub%26utm_medium%3DREADME
  [2]: https://play.google.com/store/apps/details?id=at.cmg.android.phonews&referrer=utm_source%3Dgithub%26utm_medium%3DREADME
