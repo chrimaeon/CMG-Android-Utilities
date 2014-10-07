@@ -61,7 +61,7 @@ public class AsyncTaskExecutionHelper
 
   private static <P> void execute(AsyncTask<P, ?, ?> asyncTask, boolean parallel, P... params)
   {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+    if (ApiUtils.hasHoneycomb())
     {
       HoneycombExecutionHelper.execute(asyncTask, parallel, params);
     }
