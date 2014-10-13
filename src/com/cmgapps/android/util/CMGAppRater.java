@@ -85,7 +85,7 @@ public class CMGAppRater
   {
     if (context == null)
     {
-      throw new IllegalArgumentException("context cannot be null");
+      throw new IllegalArgumentException("context may not be null");
     }
 
     mContext = context.getApplicationContext();
