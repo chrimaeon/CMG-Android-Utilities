@@ -83,4 +83,14 @@ public class ApiUtils
   {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
   }
+
+  /**
+   * Checks if build version is Lollipop
+   * 
+   * @return true if build version is >= API 21
+   */
+  public static boolean hasLollipop()
+  {
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+  }
 }
