@@ -53,6 +53,7 @@ public class UiUtilities
    * @throws IllegalArgumentException
    *           if view with the given id does not exist
    */
+  @SuppressWarnings("unchecked")
   public static <T extends View> T getView(View parent, int resourceId)
   {
     return (T) checkView(parent.findViewById(resourceId));
@@ -73,6 +74,7 @@ public class UiUtilities
    * @throws IllegalArgumentException
    *           if view with the given id does not exist
    */
+  @SuppressWarnings("unchecked")
   public static <T extends View> T getView(Activity parent, int resourceId)
   {
     return (T) checkView(parent.findViewById(resourceId));
@@ -91,6 +93,7 @@ public class UiUtilities
    *          type of the View
    * @return the view or null if the view does not exist
    */
+  @SuppressWarnings("unchecked")
   public static <T extends View> T getViewOrNull(View parent, int resourceId)
   {
     return (T) parent.findViewById(resourceId);
@@ -109,6 +112,7 @@ public class UiUtilities
    *          type of the View
    * @return the view or null if the view does not exist
    */
+  @SuppressWarnings("unchecked")
   public static <T extends View> T getViewOrNull(Activity parent, int resourceId)
   {
     return (T) parent.findViewById(resourceId);
