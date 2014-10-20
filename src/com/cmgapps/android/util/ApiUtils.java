@@ -17,6 +17,9 @@ package com.cmgapps.android.util;
 
 import android.os.Build;
 
+/**
+ * Helper class for API version checks
+ */
 public class ApiUtils
 {
   private ApiUtils()
@@ -25,9 +28,9 @@ public class ApiUtils
   }
 
   /**
-   * Checks if build version is Gingerbread MR1
+   * <p>Checks if build version is Gingerbread MR1</p>
    * 
-   * @return true if build version is >= API 10
+   * @return true if build version is &gt;= API 10
    */
   public static boolean hasGingerbreadMR1()
   {
@@ -35,9 +38,9 @@ public class ApiUtils
   }
 
   /**
-   * Checks if build version is Honeycomb
+   * <p>Checks if build version is Honeycomb</p>
    * 
-   * @return true if build version is >= API 11
+   * @return true if build version is &gt;= API 11
    */
   public static boolean hasHoneycomb()
   {
@@ -45,9 +48,9 @@ public class ApiUtils
   }
 
   /**
-   * Checks if build version is Honeycomb MR1
+   * <p>Checks if build version is Honeycomb MR1</p>
    * 
-   * @return true if build version is >= API 12
+   * @return true if build version is &gt;= API 12
    */
   public static boolean hasHoneycombMR1()
   {
@@ -55,9 +58,9 @@ public class ApiUtils
   }
 
   /**
-   * Checks if build version is Ice Cream Sandwitch
+   * <p>Checks if build version is Ice Cream Sandwich</p>
    * 
-   * @return true if build version is >= API 14
+   * @return true if build version is &gt;= API 14
    */
   public static boolean hasIceCreamSandwitch()
   {
@@ -65,9 +68,9 @@ public class ApiUtils
   }
 
   /**
-   * Checks if build version is Jelly Bean
+   * <p>Checks if build version is Jelly Bean</p>
    * 
-   * @return true if build version is >= API 16
+   * @return true if build version is &gt;= API 16
    */
   public static boolean hasJellyBean()
   {
@@ -75,9 +78,9 @@ public class ApiUtils
   }
 
   /**
-   * Checks if build version is KitKat
+   * <p>Checks if build version is KitKat</p>
    * 
-   * @return true if build version is >= API 19
+   * @return true if build version is &gt;= API 19
    */
   public static boolean hasKitKat()
   {
@@ -85,9 +88,9 @@ public class ApiUtils
   }
 
   /**
-   * Checks if build version is Lollipop
+   * <p>Checks if build version is Lollipop</p>
    * 
-   * @return true if build version is >= API 21
+   * @return true if build version is &gt;= API 21
    */
   public static boolean hasLollipop()
   {

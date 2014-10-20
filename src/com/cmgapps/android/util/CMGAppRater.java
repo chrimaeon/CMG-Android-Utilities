@@ -51,7 +51,8 @@ import com.cmgapps.android.R;
  * Use {@link #incrementUseCount()} on your main activity
  * {@link Activity#onCreate(Bundle)} implementation.<br />
  * Then call {@link #checkForRating()} to check if the requirements are met to
- * show the dialog and finally call {@link #show()} to show the rating dialog
+ * show the dialog and finally call {@link #show(Context)} to show the rating
+ * dialog
  * </p>
  *
  */

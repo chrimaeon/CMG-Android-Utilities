@@ -20,6 +20,9 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.v4.util.LruCache;
 
+/**
+ * BitmapCache using Androids {@link LruCache}
+ */
 public final class BitmapCache extends LruCache<Integer, Bitmap>
 {
 
@@ -36,13 +39,13 @@ public final class BitmapCache extends LruCache<Integer, Bitmap>
     {
       return bitmap.getAllocationByteCount() / 1024;
     }
-    else if (ApiUtils.hasHoneycombMR1())
+
+    if (ApiUtils.hasHoneycombMR1())
     {
       return bitmap.getByteCount() / 1024;
     }
-    else
-    {
-      return (bitmap.getRowBytes() * bitmap.getHeight()) / 1024;
-    }
+
+    return (bitmap.getRowBytes() * bitmap.getHeight()) / 1024;
+
   }
 }

@@ -21,7 +21,7 @@ import android.util.Log;
 import com.cmgapps.android.BuildConfig;
 
 /**
- * Helper methods that make logging more consistent throughout the app.
+ * <p>Helper methods that make logging more consistent throughout the app.</p>
  */
 public class LogUtils
 {

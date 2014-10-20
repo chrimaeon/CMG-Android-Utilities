@@ -42,11 +42,13 @@ public class UiUtilities
    * <p>
    * Gets a view from a {@link ViewGroup}
    * </p>
-   * 
+   *
    * @param parent
    *          the view to look in
    * @param resourceId
    *          the id of the view to look for
+   * @param <T>
+   *          type of the View
    * @return the view
    * @throws IllegalArgumentException
    *           if view with the given id does not exist
@@ -60,14 +62,16 @@ public class UiUtilities
    * <p>
    * Gets a view from a {@link Activity}
    * </p>
-   * 
+   *
    * @param parent
    *          the Activity to look in
    * @param resourceId
    *          the id of the view to look for
+   * @param <T>
+   *          type of the View
    * @return the view
    * @throws IllegalArgumentException
-   *           if view with the givven id does not exist
+   *           if view with the given id does not exist
    */
   public static <T extends View> T getView(Activity parent, int resourceId)
   {
@@ -78,11 +82,13 @@ public class UiUtilities
    * <p>
    * Gets a view from a {@link ViewGroup}
    * </p>
-   * 
+   *
    * @param parent
    *          the view to look in
    * @param resourceId
    *          the id of the view to look for
+   * @param <T>
+   *          type of the View
    * @return the view or null if the view does not exist
    */
   public static <T extends View> T getViewOrNull(View parent, int resourceId)
@@ -94,11 +100,13 @@ public class UiUtilities
    * <p>
    * Gets a view from a {@link Activity}
    * </p>
-   * 
+   *
    * @param parent
    *          the Activity to look in
    * @param resourceId
    *          the id of the view to look for
+   * @param <T>
+   *          type of the View
    * @return the view or null if the view does not exist
    */
   public static <T extends View> T getViewOrNull(Activity parent, int resourceId)
@@ -114,6 +122,12 @@ public class UiUtilities
     return v;
   }
 
+  /**
+   * <p>Check if running on a large screen</p>
+   * 
+   * @param context the application context
+   * @return true if runnning an a large screen
+   */
   public static boolean isTablet(Context context)
   {
     return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
