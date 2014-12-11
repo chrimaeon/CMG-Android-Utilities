@@ -20,29 +20,24 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.v4.util.LruCache;
 
-public final class BitmapCache extends LruCache<Integer, Bitmap>
-{
+/**
+ * BitmapCache using Androids LruCache
+ */
+public final class BitmapCache extends LruCache<Integer, Bitmap> {
 
-  public BitmapCache(int maxSize)
-  {
-    super(maxSize);
-  }
+    public BitmapCache(int maxSize) {
+        super(maxSize);
+    }
 
-  @TargetApi(Build.VERSION_CODES.KITKAT)
-  @Override
-  protected int sizeOf(Integer key, Bitmap bitmap)
-  {
-    if (ApiUtils.hasKitKat())
-    {
-      return bitmap.getAllocationByteCount() / 1024;
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    @Override
+    protected int sizeOf(Integer key, Bitmap bitmap) {
+        if (ApiUtils.hasKitKat()) {
+            return bitmap.getAllocationByteCount() / 1024;
+        } else if (ApiUtils.hasHoneycombMR1()) {
+            return bitmap.getByteCount() / 1024;
+        } else {
+            return (bitmap.getRowBytes() * bitmap.getHeight()) / 1024;
+        }
     }
-    else if (ApiUtils.hasHoneycombMR1())
-    {
-      return bitmap.getByteCount() / 1024;
-    }
-    else
-    {
-      return (bitmap.getRowBytes() * bitmap.getHeight()) / 1024;
-    }
-  }
 }

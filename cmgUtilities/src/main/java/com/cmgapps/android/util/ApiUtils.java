@@ -17,80 +17,84 @@ package com.cmgapps.android.util;
 
 import android.os.Build;
 
-public class ApiUtils
-{
-  private ApiUtils()
-  {
+/**
+ * Helper class for API version checks
+ */
+public class ApiUtils {
+
+  private ApiUtils() {
     // Utility Class
   }
 
   /**
-   * Checks if build version is Gingerbread MR1
-   * 
-   * @return true if build version is >= API 10
+   * Checks if build version is Gingerbread
+   *
+   * @return true if build version is &gt;= API 9
    */
-  public static boolean hasGingerbreadMR1()
-  {
+  public static boolean hasGingerbread() {
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD;
+  }
+
+  /**
+   * Checks if build version is Gingerbread MR1
+   *
+   * @return true if build version is &gt;= API 10
+   */
+  public static boolean hasGingerbreadMR1() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD_MR1;
   }
 
   /**
    * Checks if build version is Honeycomb
-   * 
-   * @return true if build version is >= API 11
+   *
+   * @return true if build version is &gt;= API 11
    */
-  public static boolean hasHoneycomb()
-  {
+  public static boolean hasHoneycomb() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
   }
 
   /**
    * Checks if build version is Honeycomb MR1
-   * 
-   * @return true if build version is >= API 12
+   *
+   * @return true if build version is &gt;= API 12
    */
-  public static boolean hasHoneycombMR1()
-  {
+  public static boolean hasHoneycombMR1() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1;
   }
 
   /**
    * Checks if build version is Ice Cream Sandwitch
-   * 
-   * @return true if build version is >= API 14
+   *
+   * @return true if build version is &gt;= API 14
    */
-  public static boolean hasIceCreamSandwitch()
-  {
+  public static boolean hasIceCreamSandwitch() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
   }
 
   /**
    * Checks if build version is Jelly Bean
-   * 
-   * @return true if build version is >= API 16
+   *
+   * @return true if build version is &gt;= API 16
    */
-  public static boolean hasJellyBean()
-  {
+  public static boolean hasJellyBean() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN;
   }
 
   /**
    * Checks if build version is KitKat
-   * 
-   * @return true if build version is >= API 19
+   *
+   * @return true if build version is &gt;= API 19
    */
-  public static boolean hasKitKat()
-  {
+  public static boolean hasKitKat() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
   }
 
   /**
-   * Checks if build version is Lollipop
-   * 
-   * @return true if build version is >= API 21
+   * <p>Checks if build version is Lollipop</p>
+   *
+   * @return true if build version is &gt;= API 21
    */
-  public static boolean hasLollipop()
-  {
+  public static boolean hasLollipop() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
   }
 }
