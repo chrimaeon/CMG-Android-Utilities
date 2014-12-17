@@ -37,9 +37,8 @@ public class UiUtilities {
     }
 
     /**
-     * <p>
      * Gets a view from a {@link ViewGroup}
-     * </p>
+     * <p/>
      *
      * @param parent     the view to look in
      * @param resourceId the id of the view to look for
@@ -47,14 +46,14 @@ public class UiUtilities {
      * @return the view
      * @throws IllegalArgumentException if view with the given id does not exist
      */
+    @SuppressWarnings("unchecked")
     public static <T extends View> T getView(View parent, int resourceId) {
         return (T) checkView(parent.findViewById(resourceId));
     }
 
     /**
-     * <p>
      * Gets a view from a {@link Activity}
-     * </p>
+     * <p/>
      *
      * @param parent     the Activity to look in
      * @param resourceId the id of the view to look for
@@ -62,34 +61,35 @@ public class UiUtilities {
      * @return the view
      * @throws IllegalArgumentException if view with the givven id does not exist
      */
+    @SuppressWarnings("unchecked")
     public static <T extends View> T getView(Activity parent, int resourceId) {
         return (T) checkView(parent.findViewById(resourceId));
     }
 
     /**
-     * <p>
      * Gets a view from a {@link ViewGroup}
-     * </p>
+     * <p/>
      *
      * @param parent     the view to look in
      * @param resourceId the id of the view to look for
      * @param <T>        type of the View
      * @return the view or null if the view does not exist
      */
+    @SuppressWarnings("unchecked")
     public static <T extends View> T getViewOrNull(View parent, int resourceId) {
         return (T) parent.findViewById(resourceId);
     }
 
     /**
-     * <p>
      * Gets a view from a {@link Activity}
-     * </p>
+     * <p/>
      *
      * @param parent     the Activity to look in
      * @param resourceId the id of the view to look for
      * @param <T>        type of the View
      * @return the view or null if the view does not exist
      */
+    @SuppressWarnings("unchecked")
     public static <T extends View> T getViewOrNull(Activity parent, int resourceId) {
         return (T) parent.findViewById(resourceId);
     }
