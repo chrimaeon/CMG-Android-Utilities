@@ -44,15 +44,13 @@ import static com.cmgapps.android.util.LogUtils.LOGI;
 import static com.cmgapps.android.util.LogUtils.makeLogTag;
 
 /**
- * <p>
  * Class that utilizes usage count and time to open a rate dialog.
- * </p>
  * <p>
  * Use {@link #incrementUseCount()} on your main activity
- * {@link Activity#onCreate(Bundle)} implementation.<br>
+ * {@link Activity#onCreate(Bundle)} implementation.
+ * <p>
  * Then call {@link #checkForRating()} to check if the requirements are met to
- * show the dialog and finally call {@link com.cmgapps.android.util.CMGAppRater#show(android.content.Context)} to show the rating dialog
- * </p>
+ * show the dialog and finally call {@link #show(Context)} to show the rating dialog
  */
 public class CMGAppRater {
     private static final String TAG = makeLogTag("CMGAppRater");
@@ -92,9 +90,7 @@ public class CMGAppRater {
     }
 
     /**
-     * <p>
      * Get a {@link CMGAppRater} instance
-     * </p>
      *
      * @param context the Application Context
      * @return The {@link CMGAppRater} instance
@@ -131,10 +127,8 @@ public class CMGAppRater {
     }
 
     /**
-     * <p>
      * Sets the debug flag to display current <code>CmgAppRater</code> field
      * values on {@link #checkForRating()}
-     * </p>
      *
      * @param debug true to display debug output
      */
@@ -143,12 +137,9 @@ public class CMGAppRater {
     }
 
     /**
-     * <p>
      * Call to check if the requirements to open the rating dialog are met
-     * </p>
      * <p>
      * <b>NOTICE:</b> This method is thread safe
-     * </p>
      *
      * @return true if requirements are met.
      */
@@ -179,12 +170,9 @@ public class CMGAppRater {
     }
 
     /**
-     * <p>
      * Increments the usage count.
-     * </p>
      * <p>
      * <b>NOTICE:</b> This method is thread safe
-     * </p>
      */
     public synchronized void incrementUseCount() {
 
@@ -219,9 +207,7 @@ public class CMGAppRater {
     }
 
     /**
-     * <p>
      * Shows a default {@link AlertDialog}
-     * </p>
      *
      * @param context A Context to show the dialog
      */
@@ -297,9 +283,7 @@ public class CMGAppRater {
     }
 
     /**
-     * <p>
      * Get the {@link SharedPreferences} file contents
-     * </p>
      */
     @Override
     public String toString() {

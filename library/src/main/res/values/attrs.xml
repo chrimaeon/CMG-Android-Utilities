@@ -20,7 +20,7 @@
     <declare-styleable name="FlowLayout">
         <attr name="horizontalSpacing" format="dimension" />
         <attr name="verticalSpacing" format="dimension" />
-        <attr name="fl_orientation" format="enum">
+        <attr name="orientation" format="enum">
             <enum name="horizontal" value="0" />
             <enum name="vertical" value="1" />
         </attr>
@@ -31,7 +31,7 @@
         <attr name="layout_verticalSpacing" format="dimension" />
     </declare-styleable>
     <declare-styleable name="RelativeSquareLayout">
-        <attr name="layout_size">
+        <attr name="constraint">
             <enum name="width" value="0" />
             <enum name="height" value="1" />
         </attr>

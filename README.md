@@ -1,5 +1,5 @@
-[CMG Mobile Apps](http://www.cmgapps.com?utm_source=github&utm_medium=README&utm_campaign=default) Android&trade; Utilities
-=================================
+#[CMG Mobile Apps](http://www.cmgapps.com?utm_source=github&utm_medium=README&utm_campaign=default) Android&trade; Utilities
+[![Maven Central](https://img.shields.io/maven-central/v/com.cmgapps.android/cmgUtilities.svg)](https://oss.sonatype.org/content/repositories/releases/com/cmgapps/android/cmgUtilities/)
 
 This is a collection of Android Utility classes.
 
@@ -52,7 +52,7 @@ Gradle
 Android Utilities are now pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.cmgapps.android:cmgUtilities:0.+'
+        compile 'com.cmgapps.android:cmgUtilities:0.4'
     }
 
 Developed By

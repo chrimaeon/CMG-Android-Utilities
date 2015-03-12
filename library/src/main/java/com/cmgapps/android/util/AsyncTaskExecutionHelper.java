@@ -23,8 +23,8 @@ import android.os.Build;
 import java.util.concurrent.Executor;
 
 /**
- * <p>Uses level 11 APIs (Honeycomb) when possible to use parallel/serial executors and falls
- * back to standard execution if API level is below 11.</p>
+ * Uses level 11 APIs (Honeycomb) when possible to use parallel/serial executors and falls
+ * back to standard execution if API level is below 11.
  */
 public class AsyncTaskExecutionHelper {
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -36,7 +36,7 @@ public class AsyncTaskExecutionHelper {
     }
 
     /**
-     * <p>Executes the {@link AsyncTask} in parallel</p>
+     * Executes the {@link AsyncTask} in parallel
      *
      * @param asyncTask the <code>AsyncTask</code> to execute
      * @param params    the params to pass to the <code>AsyncTask</code>
@@ -47,7 +47,7 @@ public class AsyncTaskExecutionHelper {
     }
 
     /**
-     * <p>Executes the {@link AsyncTask} in serial</p>
+     * Executes the {@link AsyncTask} in serial
      *
      * @param asyncTask the <code>AsyncTask</code> to execute
      * @param params    the params to pass to the <code>AsyncTask</code>
