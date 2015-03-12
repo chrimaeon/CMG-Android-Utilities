@@ -25,7 +25,6 @@ import java.util.concurrent.Executor;
 /**
  * Uses level 11 APIs (Honeycomb) when possible to use parallel/serial executors and falls
  * back to standard execution if API level is below 11.
- * <p/>
  */
 public class AsyncTaskExecutionHelper {
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -38,7 +37,6 @@ public class AsyncTaskExecutionHelper {
 
     /**
      * Executes the {@link AsyncTask} in parallel
-     * <p/>
      *
      * @param asyncTask the <code>AsyncTask</code> to execute
      * @param params    the params to pass to the <code>AsyncTask</code>
@@ -50,7 +48,6 @@ public class AsyncTaskExecutionHelper {
 
     /**
      * Executes the {@link AsyncTask} in serial
-     * <p/>
      *
      * @param asyncTask the <code>AsyncTask</code> to execute
      * @param params    the params to pass to the <code>AsyncTask</code>

@@ -56,7 +56,6 @@ public class RelativeSquareLayout extends RelativeLayout {
 
     /**
      * Sets the constraint for the layout
-     * </p>
      *
      * @param constraint the constraint to set (<code>0 = WIDTH, 1 = HEIGHT</code>)
      */

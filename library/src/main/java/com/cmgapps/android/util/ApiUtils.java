@@ -27,8 +27,7 @@ public class ApiUtils {
     }
 
     /**
-     * Checks if build version is Gingerbread
-     * <p/>
+     * Checks if build version has Gingerbread
      *
      * @return true if build version is &gt;= API 9
      */
@@ -37,8 +36,7 @@ public class ApiUtils {
     }
 
     /**
-     * Checks if build version is Gingerbread MR1
-     * <p/>
+     * Checks if build version has Gingerbread MR1
      *
      * @return true if build version is &gt;= API 10
      */
@@ -47,8 +45,7 @@ public class ApiUtils {
     }
 
     /**
-     * Checks if build version is Honeycomb
-     * <p/>
+     * Checks if build version has Honeycomb
      *
      * @return true if build version is &gt;= API 11
      */
@@ -57,8 +54,7 @@ public class ApiUtils {
     }
 
     /**
-     * Checks if build version is Honeycomb MR1
-     * <p/>
+     * Checks if build version has Honeycomb MR1
      *
      * @return true if build version is &gt;= API 12
      */
@@ -67,8 +63,7 @@ public class ApiUtils {
     }
 
     /**
-     * Checks if build version is Ice Cream Sandwitch
-     * <p/>
+     * Checks if build version has Ice Cream Sandwitch
      *
      * @return true if build version is &gt;= API 14
      */
@@ -77,8 +72,7 @@ public class ApiUtils {
     }
 
     /**
-     * Checks if build version is Jelly Bean
-     * <p/>
+     * Checks if build version has Jelly Bean
      *
      * @return true if build version is &gt;= API 16
      */
@@ -87,8 +81,7 @@ public class ApiUtils {
     }
 
     /**
-     * Checks if build version is KitKat
-     * <p/>
+     * Checks if build version has KitKat
      *
      * @return true if build version is &gt;= API 19
      */
@@ -97,8 +90,7 @@ public class ApiUtils {
     }
 
     /**
-     * Checks if build version is Lollipop
-     * <p/>
+     * Checks if build version has Lollipop
      *
      * @return true if build version is &gt;= API 21
      */

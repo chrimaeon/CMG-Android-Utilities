@@ -38,7 +38,6 @@ public class UiUtilities {
 
     /**
      * Gets a view from a {@link ViewGroup}
-     * <p/>
      *
      * @param parent     the view to look in
      * @param resourceId the id of the view to look for
@@ -53,7 +52,6 @@ public class UiUtilities {
 
     /**
      * Gets a view from a {@link Activity}
-     * <p/>
      *
      * @param parent     the Activity to look in
      * @param resourceId the id of the view to look for
@@ -68,7 +66,6 @@ public class UiUtilities {
 
     /**
      * Gets a view from a {@link ViewGroup}
-     * <p/>
      *
      * @param parent     the view to look in
      * @param resourceId the id of the view to look for
@@ -82,7 +79,6 @@ public class UiUtilities {
 
     /**
      * Gets a view from a {@link Activity}
-     * <p/>
      *
      * @param parent     the Activity to look in
      * @param resourceId the id of the view to look for
@@ -101,6 +97,13 @@ public class UiUtilities {
         return v;
     }
 
+    /**
+     * Check is running on tablet
+     *
+     * @param context the applications context
+     * @return <code>true</code> if screnn layout size is <code>large</code>
+     */
+    @SuppressWarnings("UnusedDeclaration")
     public static boolean isTablet(Context context) {
         return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
     }
