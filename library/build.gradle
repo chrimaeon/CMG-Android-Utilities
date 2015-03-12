@@ -1,20 +1,8 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.0.0'
-    }
-}
 
 apply plugin: 'com.android.library'
 
 version project.VERSION_NAME
 group project.GROUP
-
-dependencies {
-    compile 'com.android.support:support-v4:21.0.3'
-}
 
 android {
     compileSdkVersion 21
@@ -39,6 +27,10 @@ android {
             versionNameSuffix += " DEBUG"
         }
     }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:21.0.3'
 }
 
 apply from: '../deploy.gradle'
