@@ -23,46 +23,58 @@ import android.widget.RelativeLayout;
 import com.cmgapps.android.R;
 
 /**
- *
  * A layout which container is square
- *
  */
-public class RelativeSquareLayout extends RelativeLayout
-{
+public class RelativeSquareLayout extends RelativeLayout {
 
-  private static final int WIDTH = 0;
-  private static final int HEIGHT = 1;
+    private static final int WIDTH = 0;
+    private static final int HEIGHT = 1;
 
-  private int layout_size_ = WIDTH;
+    private int mConstraint = WIDTH;
 
-  public RelativeSquareLayout(Context context, AttributeSet attrs)
-  {
-    super(context, attrs);
-
-    TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RelativeSquareLayout);
-
-    layout_size_ = a.getInt(R.styleable.RelativeSquareLayout_layout_size, WIDTH);
-    a.recycle();
-  }
-
-  public RelativeSquareLayout(Context context)
-  {
-    super(context);
-  }
-
-  @Override
-  protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
-  {
-    switch (layout_size_)
-    {
-      case WIDTH:
-        super.onMeasure(widthMeasureSpec, widthMeasureSpec);
-        return;
-      case HEIGHT:
-        super.onMeasure(heightMeasureSpec, heightMeasureSpec);
-        return;
-      default:
-        throw new RuntimeException("SquareLayout layout_size must be set");
+    public RelativeSquareLayout(Context context) {
+        super(context);
+        init(context, null);
     }
-  }
+
+    public RelativeSquareLayout(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(context, attrs);
+    }
+
+    public RelativeSquareLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context, attrs);
+    }
+
+    private void init(Context context, AttributeSet attrs) {
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RelativeSquareLayout);
+        mConstraint = a.getInt(R.styleable.RelativeSquareLayout_constraint, WIDTH);
+        a.recycle();
+    }
+
+
+    /**
+     * Sets the constraint for the layout
+     * </p>
+     *
+     * @param constraint the constraint to set (<code>0 = WIDTH, 1 = HEIGHT</code>)
+     */
+    public void setConstraint(int constraint) {
+        mConstraint = constraint;
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        switch (mConstraint) {
+            case WIDTH:
+                super.onMeasure(widthMeasureSpec, widthMeasureSpec);
+                return;
+            case HEIGHT:
+                super.onMeasure(heightMeasureSpec, heightMeasureSpec);
+                return;
+            default:
+                throw new RuntimeException("SquareLayout constraint has no valid value");
+        }
+    }
 }
