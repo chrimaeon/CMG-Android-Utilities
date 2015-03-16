@@ -18,22 +18,33 @@ package com.cmgapps.android.layout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.annotation.IntDef;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.cmgapps.android.R;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * A layout that aligns as many of its child views in a row/column as possible
  */
+@SuppressWarnings("UnusedDeclaration")
 public class FlowLayout extends ViewGroup {
+
+    @IntDef({HORIZONTAL, VERTICAL})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface LayoutOrientation {
+    }
+
     public static final int HORIZONTAL = 0;
     public static final int VERTICAL = 1;
 
     private int mHorizontalSpacing = 0;
     private int mVerticalSpacing = 0;
-    private int mOrientation = 0;
+    private int mOrientation = HORIZONTAL;
 
     public FlowLayout(Context context) {
         super(context);
@@ -55,10 +66,14 @@ public class FlowLayout extends ViewGroup {
         try {
             mHorizontalSpacing = a.getDimensionPixelSize(R.styleable.FlowLayout_horizontalSpacing, 0);
             mVerticalSpacing = a.getDimensionPixelSize(R.styleable.FlowLayout_verticalSpacing, 0);
-            mOrientation = a.getInteger(R.styleable.FlowLayout_orientation, HORIZONTAL);
+            mOrientation = a.getInt(R.styleable.FlowLayout_orientation, HORIZONTAL);
         } finally {
             a.recycle();
         }
+    }
+
+    public void setOrientation(@LayoutOrientation int orientation) {
+        mOrientation = orientation;
     }
 
     /**
@@ -100,9 +115,9 @@ public class FlowLayout extends ViewGroup {
                 continue;
             }
 
-            child
-                    .measure(MeasureSpec.makeMeasureSpec(sizeWidth, modeWidth == MeasureSpec.EXACTLY ? MeasureSpec.AT_MOST
-                            : modeWidth), MeasureSpec.makeMeasureSpec(sizeHeight,
+            child.measure(MeasureSpec.makeMeasureSpec(sizeWidth,
+                            modeWidth == MeasureSpec.EXACTLY ? MeasureSpec.AT_MOST : modeWidth),
+                    MeasureSpec.makeMeasureSpec(sizeHeight,
                             modeHeight == MeasureSpec.EXACTLY ? MeasureSpec.AT_MOST : modeHeight));
 
             LayoutParams lp = (LayoutParams) child.getLayoutParams();
