@@ -207,7 +207,7 @@ public class CMGAppRater {
     }
 
     /**
-     * Shows a default {@link AlertDialog}
+     * Shows a default {@link AlertDialog}. Must be called from main thread
      *
      * @param context A Context to show the dialog
      */
@@ -216,8 +216,8 @@ public class CMGAppRater {
             throw new IllegalArgumentException("context cannot be null");
         }
 
-        if (Looper.getMainLooper().getThread() != Thread.currentThread()) {
-            throw new RuntimeException("CMGAppRater.show() must be called from main thread");
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            throw new IllegalStateException("CMGAppRater.show() must be called from main thread");
         }
 
         if (mDialog != null && mDialog.isShowing())
