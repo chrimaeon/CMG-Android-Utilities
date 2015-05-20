@@ -27,74 +27,83 @@ public class ApiUtils {
     }
 
     /**
-     * Checks if build version has Gingerbread
+     * Checks if build version is {@link Build.VERSION_CODES#GINGERBREAD GINGERBREAD}
      *
-     * @return true if build version is &gt;= API 9
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#GINGERBREAD}
      */
     public static boolean hasGingerbread() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD;
     }
 
     /**
-     * Checks if build version has Gingerbread MR1
+     * Checks if build version is {@link Build.VERSION_CODES#GINGERBREAD_MR1 GINGERBREAD_MR1}
      *
-     * @return true if build version is &gt;= API 10
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#GINGERBREAD_MR1}
      */
     public static boolean hasGingerbreadMR1() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD_MR1;
     }
 
     /**
-     * Checks if build version has Honeycomb
+     * Checks if build version is {@link Build.VERSION_CODES#HONEYCOMB HONEYCOMB}
      *
-     * @return true if build version is &gt;= API 11
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#HONEYCOMB}
      */
     public static boolean hasHoneycomb() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
     }
 
     /**
-     * Checks if build version has Honeycomb MR1
+     * Checks if build version is {@link Build.VERSION_CODES#HONEYCOMB_MR1 HONEYCOMB_MR1}
      *
-     * @return true if build version is &gt;= API 12
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#HONEYCOMB_MR1}
      */
     public static boolean hasHoneycombMR1() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1;
     }
 
     /**
-     * Checks if build version has Ice Cream Sandwitch
+     * Checks if build version is {@link Build.VERSION_CODES#ICE_CREAM_SANDWICH ICE_CREAM_SANDWICH}
      *
-     * @return true if build version is &gt;= API 14
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#ICE_CREAM_SANDWICH}
      */
     public static boolean hasIceCreamSandwitch() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
     }
 
     /**
-     * Checks if build version has Jelly Bean
+     * Checks if build version is {@link Build.VERSION_CODES#JELLY_BEAN JELLY_BEAN}
      *
-     * @return true if build version is &gt;= API 16
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#JELLY_BEAN}
      */
     public static boolean hasJellyBean() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN;
     }
 
     /**
-     * Checks if build version has KitKat
+     * Checks if build version is {@link Build.VERSION_CODES#KITKAT KITKAT}
      *
-     * @return true if build version is &gt;= API 19
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#KITKAT}
      */
     public static boolean hasKitKat() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
     }
 
     /**
-     * Checks if build version has Lollipop
+     * Checks if build version is {@link Build.VERSION_CODES#LOLLIPOP LOLLIPOP}
      *
-     * @return true if build version is &gt;= API 21
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#LOLLIPOP}
      */
     public static boolean hasLollipop() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+    }
+
+    /**
+     * Checks if build version is {@link Build.VERSION_CODES#LOLLIPOP_MR1 LOLLIPOP_MR1}
+     *
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#LOLLIPOP_MR1}
+     */
+    public static boolean hasLollipopMR1() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 }

@@ -17,18 +17,26 @@ package com.cmgapps.android.layout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.annotation.IntDef;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
 import com.cmgapps.android.R;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * A layout which container is square
  */
+@SuppressWarnings("UnusedDeclaration")
 public class RelativeSquareLayout extends RelativeLayout {
 
-    private static final int WIDTH = 0;
-    private static final int HEIGHT = 1;
+    @IntDef({WIDTH, HEIGHT})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface LayoutConstraint{}
+    public static final int WIDTH = 0;
+    public static final int HEIGHT = 1;
 
     private int mConstraint = WIDTH;
 
@@ -59,10 +67,11 @@ public class RelativeSquareLayout extends RelativeLayout {
      *
      * @param constraint the constraint to set (<code>0 = WIDTH, 1 = HEIGHT</code>)
      */
-    public void setConstraint(int constraint) {
+    public void setConstraint(@LayoutConstraint int constraint) {
         mConstraint = constraint;
     }
 
+    @SuppressWarnings("SuspiciousNameCombination")
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         switch (mConstraint) {
