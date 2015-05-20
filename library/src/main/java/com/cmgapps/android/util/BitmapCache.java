@@ -21,7 +21,7 @@ import android.os.Build;
 import android.support.v4.util.LruCache;
 
 /**
- * BitmapCache using Androids LruCache
+ * BitmapCache using {@link LruCache}
  */
 public final class BitmapCache extends LruCache<Integer, Bitmap> {
 
