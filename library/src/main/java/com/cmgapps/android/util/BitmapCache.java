@@ -25,6 +25,9 @@ import android.support.v4.util.LruCache;
  */
 public final class BitmapCache extends LruCache<Integer, Bitmap> {
 
+    /**
+     * @param maxSize maximum size of the Cache in kilobytes
+     */
     public BitmapCache(int maxSize) {
         super(maxSize);
     }
