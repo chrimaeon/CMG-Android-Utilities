@@ -91,7 +91,7 @@ afterEvaluate { project ->
             windowTitle title
         }
         source = android.sourceSets.main.java.srcDirs
-        classpath += files(project.android.getBootClasspath().join(File.pathSeparator))
+        classpath += files(android.getBootClasspath().join(File.pathSeparator))
         exclude "**/BuildConfig.java", "**/R.java"
     }
 
