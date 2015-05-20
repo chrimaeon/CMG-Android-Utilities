@@ -29,6 +29,7 @@ import java.util.concurrent.Executor;
 public class AsyncTaskExecutionHelper {
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     static class HoneycombExecutionHelper {
+        @SafeVarargs
         public static <P> void execute(AsyncTask<P, ?, ?> asyncTask, boolean parallel, P... params) {
             Executor executor = parallel ? AsyncTask.THREAD_POOL_EXECUTOR : AsyncTask.SERIAL_EXECUTOR;
             asyncTask.executeOnExecutor(executor, params);
@@ -42,6 +43,7 @@ public class AsyncTaskExecutionHelper {
      * @param params    the params to pass to the <code>AsyncTask</code>
      * @param <P>       type of the parameters
      */
+    @SafeVarargs
     public static <P> void executeParallel(AsyncTask<P, ?, ?> asyncTask, P... params) {
         execute(asyncTask, true, params);
     }
@@ -53,10 +55,12 @@ public class AsyncTaskExecutionHelper {
      * @param params    the params to pass to the <code>AsyncTask</code>
      * @param <P>       type of the parameters
      */
+    @SafeVarargs
     public static <P> void executeSerial(AsyncTask<P, ?, ?> asyncTask, P... params) {
         execute(asyncTask, false, params);
     }
 
+    @SafeVarargs
     private static <P> void execute(AsyncTask<P, ?, ?> asyncTask, boolean parallel, P... params) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             HoneycombExecutionHelper.execute(asyncTask, parallel, params);
