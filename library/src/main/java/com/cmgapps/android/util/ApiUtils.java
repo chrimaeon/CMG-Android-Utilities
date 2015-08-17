@@ -106,4 +106,13 @@ public class ApiUtils {
     public static boolean hasLollipopMR1() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
+
+    /**
+     * Checks if build version is {@link Build.VERSION_CODES#M VERSION_CODES.M}
+     *
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#M}
+     */
+    public static boolean hasM() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
+    }
 }

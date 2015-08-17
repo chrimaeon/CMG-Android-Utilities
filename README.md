@@ -52,7 +52,7 @@ Gradle
 Android Utilities are now pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.cmgapps.android:cmgUtilities:0.4'
+        compile 'com.cmgapps.android:cmgUtilities:0.5'
     }
 
 Developed By
@@ -64,7 +64,7 @@ Developed By
 License
 -------
 
-    Copyright 2013-2014 Christian Grach
+    Copyright 2013-2015 Christian Grach
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
