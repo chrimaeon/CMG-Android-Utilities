@@ -17,18 +17,15 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
 
-version project.VERSION_NAME
-group project.GROUP
-
 def isReleaseBuild() {
-    return VERSION_NAME.contains("-SNAPSHOT") == false
+    return !VERSION_NAME.endsWith('-SNAPSHOT')
 }
 
 def getRepositoryUrl() {
     if (isReleaseBuild()) {
-        return "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+        return 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
     } else {
-        return "https://oss.sonatype.org/content/repositories/snapshots/"
+        return 'https://oss.sonatype.org/content/repositories/snapshots/'
     }
 }
 
@@ -38,6 +35,8 @@ afterEvaluate { project ->
             mavenDeployer {
                 beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
+                pom.version = VERSION_NAME
+                pom.groupId = GROUP
                 pom.artifactId = POM_ARTIFACT_ID
 
                 def Properties credentialProps = new Properties()
@@ -79,20 +78,20 @@ afterEvaluate { project ->
     }
 
     signing {
-        required { isReleaseBuild() && gradle.taskGraph.hasTask("uploadArchives") }
+        required { isReleaseBuild() && gradle.taskGraph.hasTask('uploadArchives') }
         sign configurations.archives
     }
 
     task androidJavadocs(type: Javadoc) {
         options{
-            linksOffline "http://d.android.com/reference", "${android.sdkDirectory}/docs/reference"
-            def title ="${POM_NAME} v${VERSION_NAME} API"
+            linksOffline 'http://d.android.com/reference', "${android.sdkDirectory}/docs/reference"
+            def title = "${POM_NAME} v${VERSION_NAME} API"
             docTitle title
             windowTitle title
         }
         source = android.sourceSets.main.java.srcDirs
         classpath += files(android.getBootClasspath().join(File.pathSeparator))
-        exclude "**/BuildConfig.java", "**/R.java"
+        exclude '**/BuildConfig.java', '**/R.java'
     }
 
     task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
