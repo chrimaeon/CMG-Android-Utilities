@@ -38,6 +38,7 @@ public class RelativeSquareLayout extends RelativeLayout {
     public static final int WIDTH = 0;
     public static final int HEIGHT = 1;
 
+    @LayoutConstraint
     private int mConstraint = WIDTH;
 
     public RelativeSquareLayout(Context context) {
@@ -57,6 +58,7 @@ public class RelativeSquareLayout extends RelativeLayout {
 
     private void init(Context context, AttributeSet attrs) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RelativeSquareLayout);
+        //noinspection ResourceType
         mConstraint = a.getInt(R.styleable.RelativeSquareLayout_constraint, WIDTH);
         a.recycle();
     }
