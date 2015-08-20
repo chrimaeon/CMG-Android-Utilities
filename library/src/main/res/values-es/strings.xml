@@ -18,7 +18,7 @@
 <resources>
 
     <string name="dialog_cmgrate_title">Valorar Ahora!</string>
-    <string name="dialog_cmgrate_message">Si te gusta %1$s, por favor, tómate un momento para valorarla. Gracias!</string>
+    <string name="dialog_cmgrate_message_fmt">Si te gusta %1$s, por favor, tómate un momento para valorarla. Gracias!</string>
     <string name="dialog_cmgrate_ok">Valorar Ahora</string>
     <string name="dialog_cmgrate_later">Más tarde</string>
     <string name="dialog_cmgrate_no">No, gracias</string>
