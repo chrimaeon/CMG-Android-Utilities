@@ -18,7 +18,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="dialog_cmgrate_title" tools:ignore="MissingTranslation">Rate now!</string>
-    <string name="dialog_cmgrate_message" tools:ignore="MissingTranslation">If you enjoy using %1$s, please take a moment
+    <string name="dialog_cmgrate_message_fmt" tools:ignore="MissingTranslation">If you enjoy using %1$s, please take a moment
     to rate it.\nThanks for your support!</string>
     <string name="dialog_cmgrate_ok" tools:ignore="MissingTranslation">Rate now</string>
     <string name="dialog_cmgrate_later" tools:ignore="MissingTranslation">Remind me later</string>
