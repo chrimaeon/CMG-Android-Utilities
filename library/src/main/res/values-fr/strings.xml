@@ -18,7 +18,7 @@
 <resources>
 
     <string name="dialog_cmgrate_title">Noter!</string>
-    <string name="dialog_cmgrate_message">Si vous aimez %1$s, s\'il vous plait prenez un moment pour la noter.\nMerci pour votre soutien!</string>
+    <string name="dialog_cmgrate_message_fmt">Si vous aimez %1$s, s\'il vous plait prenez un moment pour la noter.\nMerci pour votre soutien!</string>
     <string name="dialog_cmgrate_ok">Noter</string>
     <string name="dialog_cmgrate_later">Plus tard</string>
     <string name="dialog_cmgrate_no">Non, merci</string>

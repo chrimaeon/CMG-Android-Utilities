@@ -236,7 +236,7 @@ public class CMGAppRater {
         }
 
         mDialog = new AlertDialog.Builder(context).setTitle(R.string.dialog_cmgrate_title)
-                .setMessage(context.getString(R.string.dialog_cmgrate_message, appName)).setCancelable(false)
+                .setMessage(context.getString(R.string.dialog_cmgrate_message_fmt, appName)).setCancelable(false)
                 .setIcon(context.getApplicationInfo().icon)
                 .setPositiveButton(context.getString(R.string.dialog_cmgrate_ok), new DialogInterface.OnClickListener() {
                     @Override
