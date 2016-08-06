@@ -160,4 +160,13 @@ public class ApiUtils {
     public static boolean hasM() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
     }
+
+    /**
+     * Checks if build version is {@link Build.VERSION_CODES#M VERSION_CODES.N}
+     *
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#N}
+     */
+    public static boolean hasN() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
+    }
 }
