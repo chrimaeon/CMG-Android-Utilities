@@ -1,6 +1,6 @@
 #[CMG Mobile Apps](http://www.cmgapps.com?utm_source=github&utm_medium=README&utm_campaign=default) Android&trade; Utilities
 [![Maven Central](https://img.shields.io/maven-central/v/com.cmgapps.android/cmgUtilities.svg)](https://oss.sonatype.org/content/repositories/releases/com/cmgapps/android/cmgUtilities/)
-
+[![Bintray](https://img.shields.io/bintray/v/bintray/jcenter/com.cmgapps.android:cmgUtilities.svg)](https://jcenter.bintray.com/com/cmgapps/android/cmgUtilities/)
 This is a collection of Android Utility classes.
 
 They are used at my Android&trade; Projects:
@@ -18,31 +18,27 @@ Utilities
 
     A layout which arranges as many of its child views in a row as possible.
 
-2. [AsyncTaskExecutionHelper.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/AsyncTaskExecutionHelper.java)
+1. [AsyncTaskExecutionHelper.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/AsyncTaskExecutionHelper.java)
 
     Execute your AsyncTask in parallel or serial.
 
-3. [CMGAppRater.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/CMGAppRater.java)
-
-    A Rate Dialog Helper class this takes care if requirements are met to show the Dialog.
-
-4. [LogUtils.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/LogUtils.java)
+1. [LogUtils.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/LogUtils.java)
 
     Log helper class.
 
-5. [PreferenceEditorHelper.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/PreferenceEditorHelper.java)
+1. [PreferenceEditorHelper.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/PreferenceEditorHelper.java)
 
     Commit your changes to a SharedPreference file asynchronously.
 
-6. [UiUtilities.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/UiUtilities.java)
+1. [UiUtilities.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/UiUtilities.java)
 
     Helps you retrieving Views from ViewGroups or Activities.
 
-7. [ApiUtils.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/ApiUtils.java)
+1. [ApiUtils.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/ApiUtils.java)
 
 	  Utility class for checking Android API Version
 
-8. [BitmapCache.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/BitmapCache.java)
+1. [BitmapCache.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/BitmapCache.java)
 
     Cache for bitmaps using Android's [LruCache](http://developer.android.com/reference/android/util/LruCache.html)
 
@@ -52,13 +48,13 @@ Gradle
 Android Utilities are now pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.cmgapps.android:cmgUtilities:0.7.1'
+        compile 'com.cmgapps.android:cmgUtilities:1.0'
     }
 
 Developed By
 ------------
 
-* Christian Grach - <christian.grach@gmx.at>
+* Christian Grach - <christian.grach@cmgapps.com>
 * et al.
 
 License
