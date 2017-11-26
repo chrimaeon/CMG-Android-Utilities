@@ -37,8 +37,6 @@ public final class BitmapCache extends LruCache<Integer, Bitmap> {
     protected int sizeOf(Integer key, Bitmap bitmap) {
         if (ApiUtils.hasKitKat()) {
             return bitmap.getAllocationByteCount() / 1024;
-        } else if (ApiUtils.hasHoneycombMR1()) {
-            return bitmap.getByteCount() / 1024;
         } else {
             return (bitmap.getRowBytes() * bitmap.getHeight()) / 1024;
         }

@@ -11,6 +11,7 @@ They are used at my Android&trade; Projects:
 * [PhoNews Pro][3]
 * [Roman Numerals Converter][4]
 * [Running Sushi][5]
+* [Time in Words][6]
 
 Utilities
 ---------
@@ -26,10 +27,6 @@ Utilities
 1. [LogUtils.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/LogUtils.java)
 
     Log helper class.
-
-1. [PreferenceEditorHelper.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/PreferenceEditorHelper.java)
-
-    Commit your changes to a SharedPreference file asynchronously.
 
 1. [UiUtilities.java](https://github.com/chrimaeon/CMG-Android-Utilities/blob/master/library/src/main/java/com/cmgapps/android/util/UiUtilities.java)
 
@@ -49,7 +46,7 @@ Gradle
 Android Utilities are now pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
 
     dependencies {
-        compile 'com.cmgapps.android:cmgUtilities:1.0'
+        compile 'com.cmgapps.android:cmgUtilities:1.1'
     }
 
 Developed By
@@ -61,7 +58,7 @@ Developed By
 License
 -------
 
-    Copyright 2013-2015 Christian Grach
+    Copyright 2013-2017 Christian Grach
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -82,3 +79,4 @@ License
  [3]: https://play.google.com/store/apps/details?id=com.cmgapps.android.phonewspro&referrer=utm_source%3Dgithub%26utm_medium%3DREADME
  [4]: https://play.google.com/store/apps/details?id=com.cmgapps.android.numeralsconverter&referrer=utm_source%3Dgithub%26utm_medium%3DREADME
  [5]: https://play.google.com/store/apps/details?id=com.cmgapps.android.sushicounter&referrer=utm_source%3Dgithub%26utm_medium%3DREADME
+ [6]: https://play.google.com/store/apps/details?id=com.cmgapps.android.timeinwords&referrer=utm_source%3Dgithub%26utm_medium%3DREADME

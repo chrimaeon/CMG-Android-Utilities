@@ -18,8 +18,6 @@ package com.cmgapps.android.util;
 
 import android.util.Log;
 
-import com.cmgapps.android.BuildConfig;
-
 /**
  * Helper methods that make logging more consistent throughout the app.
  */
@@ -28,6 +26,9 @@ public class LogUtils {
     private static final String LOG_PREFIX = "cmgapps_";
     private static final int LOG_PREFIX_LENGTH = LOG_PREFIX.length();
     private static final int MAX_LOG_TAG_LENGTH = 23;
+
+    private LogUtils() {
+    }
 
     public static String makeLogTag(String str) {
         if (str.length() > MAX_LOG_TAG_LENGTH - LOG_PREFIX_LENGTH)
@@ -47,12 +48,12 @@ public class LogUtils {
     }
 
     public static void LOGV(final String tag, String message) {
-        if (BuildConfig.DEBUG && Log.isLoggable(tag, Log.VERBOSE))
+        if (Log.isLoggable(tag, Log.VERBOSE))
             Log.v(tag, message);
     }
 
     public static void LOGV(final String tag, String message, Throwable cause) {
-        if (BuildConfig.DEBUG && Log.isLoggable(tag, Log.VERBOSE))
+        if (Log.isLoggable(tag, Log.VERBOSE))
             Log.v(tag, message, cause);
     }
 
@@ -78,8 +79,5 @@ public class LogUtils {
 
     public static void LOGE(final String tag, String message, Throwable cause) {
         Log.e(tag, message, cause);
-    }
-
-    private LogUtils() {
     }
 }
