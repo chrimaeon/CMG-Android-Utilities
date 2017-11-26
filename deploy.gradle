@@ -17,11 +17,11 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
 
-def isReleaseBuild() {
+def static isReleaseBuild() {
     return !VERSION_NAME.endsWith('-SNAPSHOT')
 }
 
-def getRepositoryUrl() {
+def static getRepositoryUrl() {
     if (isReleaseBuild()) {
         return 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
     } else {
@@ -39,7 +39,7 @@ afterEvaluate { project ->
                 pom.groupId = GROUP
                 pom.artifactId = POM_ARTIFACT_ID
 
-                def Properties credentialProps = new Properties()
+                Properties credentialProps = new Properties()
                 credentialProps.load(new FileInputStream(file('credentials.properties')))
 
                 repository(url: getRepositoryUrl()) {
@@ -84,7 +84,6 @@ afterEvaluate { project ->
 
     task androidJavadocs(type: Javadoc) {
         options{
-            linksOffline 'http://d.android.com/reference', "${android.sdkDirectory}/docs/reference"
             def title = "${POM_NAME} v${VERSION_NAME} API"
             docTitle title
             windowTitle title
