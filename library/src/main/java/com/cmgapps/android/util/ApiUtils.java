@@ -133,4 +133,22 @@ public class ApiUtils {
     public static boolean hasO() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
     }
+
+    /**
+     * Checks if build version is {@link Build.VERSION_CODES#M VERSION_CODES.O_MR1}
+     *
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#O_MR1}
+     */
+    public static boolean hasOMR1() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1;
+    }
+
+    /**
+     * Checks if build version is {@link Build.VERSION_CODES#M VERSION_CODES.P}
+     *
+     * @return true if build version is &gt;= API {@value Build.VERSION_CODES#P}
+     */
+    public static boolean hasP() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.P;
+    }
 }

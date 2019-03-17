@@ -46,6 +46,7 @@ public class UiUtilities {
      * @throws IllegalArgumentException if view with the given id does not exist
      */
     @SuppressWarnings("unchecked")
+    @Deprecated
     public static <T extends View> T getView(View parent, int resourceId) {
         return (T) checkView(parent.findViewById(resourceId));
     }
@@ -60,6 +61,7 @@ public class UiUtilities {
      * @throws IllegalArgumentException if view with the givven id does not exist
      */
     @SuppressWarnings("unchecked")
+    @Deprecated
     public static <T extends View> T getView(Activity parent, int resourceId) {
         return (T) checkView(parent.findViewById(resourceId));
     }
@@ -73,6 +75,7 @@ public class UiUtilities {
      * @return the view or null if the view does not exist
      */
     @SuppressWarnings("unchecked")
+    @Deprecated
     public static <T extends View> T getViewOrNull(View parent, int resourceId) {
         return (T) parent.findViewById(resourceId);
     }
@@ -86,6 +89,7 @@ public class UiUtilities {
      * @return the view or null if the view does not exist
      */
     @SuppressWarnings("unchecked")
+    @Deprecated
     public static <T extends View> T getViewOrNull(Activity parent, int resourceId) {
         return (T) parent.findViewById(resourceId);
     }
@@ -104,6 +108,7 @@ public class UiUtilities {
      * @return <code>true</code> if screnn layout size is <code>large</code>
      */
     @SuppressWarnings("UnusedDeclaration")
+    @Deprecated
     public static boolean isTablet(Context context) {
         return (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
     }

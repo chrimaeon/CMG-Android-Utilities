@@ -32,14 +32,18 @@ import java.lang.annotation.RetentionPolicy;
 @SuppressWarnings("UnusedDeclaration")
 public class RelativeSquareLayout extends RelativeLayout {
 
-    @IntDef({WIDTH, HEIGHT})
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface LayoutConstraint{}
-    public static final int WIDTH = 0;
-    public static final int HEIGHT = 1;
+    @LayoutConstraint
+    private static final int DEFAULT_LAYOUT_CONSTRAINT = LayoutConstraint.WIDTH;
 
     @LayoutConstraint
-    private int mConstraint = WIDTH;
+    private int mConstraint = DEFAULT_LAYOUT_CONSTRAINT;
+
+    @IntDef({LayoutConstraint.WIDTH, LayoutConstraint.HEIGHT})
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface LayoutConstraint {
+        int WIDTH = 0;
+        int HEIGHT = 1;
+    }
 
     public RelativeSquareLayout(Context context) {
         super(context);
@@ -59,7 +63,7 @@ public class RelativeSquareLayout extends RelativeLayout {
     private void init(Context context, AttributeSet attrs) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RelativeSquareLayout);
         //noinspection ResourceType
-        mConstraint = a.getInt(R.styleable.RelativeSquareLayout_constraint, WIDTH);
+        mConstraint = a.getInt(R.styleable.RelativeSquareLayout_constraint, DEFAULT_LAYOUT_CONSTRAINT);
         a.recycle();
     }
 
@@ -77,10 +81,10 @@ public class RelativeSquareLayout extends RelativeLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         switch (mConstraint) {
-            case WIDTH:
+            case LayoutConstraint.WIDTH:
                 super.onMeasure(widthMeasureSpec, widthMeasureSpec);
                 return;
-            case HEIGHT:
+            case LayoutConstraint.HEIGHT:
                 super.onMeasure(heightMeasureSpec, heightMeasureSpec);
                 return;
             default:

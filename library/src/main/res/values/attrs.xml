@@ -22,7 +22,7 @@
         <attr name="verticalSpacing" format="dimension" />
         <attr name="android:orientation" />
     </declare-styleable>
-    <declare-styleable name="FlowLayout_LayoutParams">
+    <declare-styleable name="FlowLayout_Layout">
         <attr name="layout_newLine" format="boolean" />
         <attr name="layout_horizontalSpacing" format="dimension" />
         <attr name="layout_verticalSpacing" format="dimension" />

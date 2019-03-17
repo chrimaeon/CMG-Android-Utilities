@@ -14,34 +14,41 @@
  * limitations under the License.
  */
 
-apply plugin: 'com.android.library'
+plugins {
+    id("com.android.library")
+}
+
+val VERSION_NAME: String by project
+val VERSION_CODE: String by project
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.3'
+    compileSdkVersion(28)
+    buildToolsVersion("28.0.3")
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 26
-        versionName project.VERSION_NAME
-        versionCode Integer.parseInt(project.VERSION_CODE)
+        minSdkVersion(14)
+        targetSdkVersion(28)
+        versionName = VERSION_NAME
+        versionCode = VERSION_CODE.toInt()
     }
 
     buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        named("release") {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
-    implementation 'com.android.support:support-v4:26.1.0'
+    implementation("com.android.support:support-v4:28.0.0")
 }
 
-apply from: '../deploy.gradle'
+apply {
+    from("../deploy.gradle")
+}

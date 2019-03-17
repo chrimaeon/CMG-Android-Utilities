@@ -1,5 +1,5 @@
 #project specific
-credentials.properties
+library/credentials.properties
 build/
 local.properties
 .idea

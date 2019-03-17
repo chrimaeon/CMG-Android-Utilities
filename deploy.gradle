@@ -17,11 +17,11 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
 
-def static isReleaseBuild() {
+def isReleaseBuild() {
     return !VERSION_NAME.endsWith('-SNAPSHOT')
 }
 
-def static getRepositoryUrl() {
+def getRepositoryUrl() {
     if (isReleaseBuild()) {
         return 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
     } else {
@@ -33,7 +33,7 @@ afterEvaluate { project ->
     uploadArchives {
         repositories {
             mavenDeployer {
-                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+                beforeDeployment { deployment -> signing.signPom(deployment) }
 
                 pom.version = VERSION_NAME
                 pom.groupId = GROUP
@@ -83,7 +83,7 @@ afterEvaluate { project ->
     }
 
     task androidJavadocs(type: Javadoc) {
-        options{
+        options {
             def title = "${POM_NAME} v${VERSION_NAME} API"
             docTitle title
             windowTitle title
