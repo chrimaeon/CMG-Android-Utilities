@@ -18,6 +18,7 @@ package com.cmgapps.android.util;
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v4.util.LruCache;
 
 /**
@@ -34,7 +35,7 @@ public final class BitmapCache extends LruCache<Integer, Bitmap> {
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
-    protected int sizeOf(Integer key, Bitmap bitmap) {
+    protected int sizeOf(@NonNull Integer key, @NonNull Bitmap bitmap) {
         if (ApiUtils.hasKitKat()) {
             return bitmap.getAllocationByteCount() / 1024;
         } else {
