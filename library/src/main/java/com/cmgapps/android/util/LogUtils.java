@@ -21,6 +21,7 @@ import android.util.Log;
 /**
  * Helper methods that make logging more consistent throughout the app.
  */
+@Deprecated
 public class LogUtils {
 
     private static final String LOG_PREFIX = "cmgapps_";

@@ -26,6 +26,7 @@ import java.util.concurrent.Executor;
  * Uses level 11 APIs (Honeycomb) when possible to use parallel/serial executors and falls
  * back to standard execution if API level is below 11.
  */
+@Deprecated
 public class AsyncTaskExecutionHelper {
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     static class HoneycombExecutionHelper {

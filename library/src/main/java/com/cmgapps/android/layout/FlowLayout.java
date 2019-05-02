@@ -34,18 +34,20 @@ import java.lang.annotation.RetentionPolicy;
 @SuppressWarnings("UnusedDeclaration")
 public class FlowLayout extends ViewGroup {
 
-    @IntDef({HORIZONTAL, VERTICAL})
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface LayoutOrientation {
-    }
-
-    public static final int HORIZONTAL = 0;
-    public static final int VERTICAL = 1;
-
+    @LayoutOrientation
+    private static final int DEFAULT_LAYOUT_ORIENTATION = LayoutOrientation.HORIZONTAL;
     private int mHorizontalSpacing = 0;
     private int mVerticalSpacing = 0;
+
     @LayoutOrientation
-    private int mOrientation = HORIZONTAL;
+    private int mOrientation = DEFAULT_LAYOUT_ORIENTATION;
+
+    @IntDef({LayoutOrientation.HORIZONTAL, LayoutOrientation.VERTICAL})
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface LayoutOrientation {
+        int HORIZONTAL = 0;
+        int VERTICAL = 1;
+    }
 
     public FlowLayout(Context context) {
         super(context);
@@ -68,7 +70,7 @@ public class FlowLayout extends ViewGroup {
             mHorizontalSpacing = a.getDimensionPixelSize(R.styleable.FlowLayout_horizontalSpacing, 0);
             mVerticalSpacing = a.getDimensionPixelSize(R.styleable.FlowLayout_verticalSpacing, 0);
             //noinspection ResourceType
-            mOrientation = a.getInt(R.styleable.FlowLayout_android_orientation, HORIZONTAL);
+            mOrientation = a.getInt(R.styleable.FlowLayout_android_orientation, DEFAULT_LAYOUT_ORIENTATION);
         } finally {
             a.recycle();
         }
@@ -92,7 +94,7 @@ public class FlowLayout extends ViewGroup {
         int size;
         int mode;
 
-        if (mOrientation == HORIZONTAL) {
+        if (mOrientation == LayoutOrientation.HORIZONTAL) {
             size = sizeWidth;
             mode = modeWidth;
         } else {
@@ -118,7 +120,7 @@ public class FlowLayout extends ViewGroup {
             }
 
             child.measure(MeasureSpec.makeMeasureSpec(sizeWidth,
-                            modeWidth == MeasureSpec.EXACTLY ? MeasureSpec.AT_MOST : modeWidth),
+                    modeWidth == MeasureSpec.EXACTLY ? MeasureSpec.AT_MOST : modeWidth),
                     MeasureSpec.makeMeasureSpec(sizeHeight,
                             modeHeight == MeasureSpec.EXACTLY ? MeasureSpec.AT_MOST : modeHeight));
 
@@ -135,7 +137,7 @@ public class FlowLayout extends ViewGroup {
             int spacingLength;
             int spacingThickness;
 
-            if (mOrientation == HORIZONTAL) {
+            if (mOrientation == LayoutOrientation.HORIZONTAL) {
                 childLength = childWidth;
                 childThickness = childHeight;
                 spacingLength = hSpacing;
@@ -165,7 +167,7 @@ public class FlowLayout extends ViewGroup {
 
             int posX;
             int posY;
-            if (mOrientation == HORIZONTAL) {
+            if (mOrientation == LayoutOrientation.HORIZONTAL) {
                 posX = getPaddingLeft() + lineLength - childLength;
                 posY = getPaddingTop() + prevLinePosition;
             } else {
@@ -178,7 +180,7 @@ public class FlowLayout extends ViewGroup {
             controlMaxThickness = prevLinePosition + lineThickness;
         }
 
-        if (mOrientation == HORIZONTAL) {
+        if (mOrientation == LayoutOrientation.HORIZONTAL) {
             this.setMeasuredDimension(resolveSize(controlMaxLength, widthMeasureSpec),
                     resolveSize(controlMaxThickness, heightMeasureSpec));
         } else {
@@ -296,14 +298,14 @@ public class FlowLayout extends ViewGroup {
         }
 
         private void readStyleParameters(Context context, AttributeSet attributeSet) {
-            TypedArray a = context.obtainStyledAttributes(attributeSet, R.styleable.FlowLayout_LayoutParams);
+            TypedArray a = context.obtainStyledAttributes(attributeSet, R.styleable.FlowLayout_Layout);
 
             try {
-                mHorizontalSpacing = a.getDimensionPixelSize(R.styleable.FlowLayout_LayoutParams_layout_horizontalSpacing,
+                mHorizontalSpacing = a.getDimensionPixelSize(R.styleable.FlowLayout_Layout_layout_horizontalSpacing,
                         NO_SPACING);
                 mVerticalSpacing = a
-                        .getDimensionPixelSize(R.styleable.FlowLayout_LayoutParams_layout_verticalSpacing, NO_SPACING);
-                mNewLine = a.getBoolean(R.styleable.FlowLayout_LayoutParams_layout_newLine, false);
+                        .getDimensionPixelSize(R.styleable.FlowLayout_Layout_layout_verticalSpacing, NO_SPACING);
+                mNewLine = a.getBoolean(R.styleable.FlowLayout_Layout_layout_newLine, false);
             } finally {
                 a.recycle();
             }
